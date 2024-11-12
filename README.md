@@ -1,5 +1,5 @@
 # Javalírica
-Projeto realizado pelos alunos: Marco Thulio Martins Felix - 4231921901 | Breno Jesus Andrade - 4231921291 | Leonardo Gabriel Silva - 4231921808 | 6. Guilherme Procópio - 4231925652
+Projeto realizado pelos alunos: Marco Thulio Martins Felix - 4231921901 | Breno Jesus Andrade - 4231921291 | Leonardo Gabriel Silva - 4231921808 |  Guilherme Procópio - 4231925652 | Pedro Rodrigues - 4231920043
 ## Biblioteca
 Uma biblioteca com front em HTML, CSS e JS e um banco de dados em Java;
 ###
