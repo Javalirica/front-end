@@ -1,0 +1,189 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #6f7374;
+}
+
+.cabecalho-home{
+    display: flex;
+    gap: 270px;
+    text-decoration: none;
+    align-items: center;
+}
+
+h3{
+    font-size: 15px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.logo-home h3{
+    cursor: pointer;
+}
+
+.btn-sair{
+    background-color: red;
+    color: black;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.menu-lateral{
+    width: 200px;
+    height: 100vh;
+    padding-top: 20px;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.container-menu-lateral{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-lateral button {
+    background-color: blueviolet;
+    color: black;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.menu-lateral img {
+    width: 20px; 
+    margin-left: 10px;
+}
+
+.container-central {
+    margin-left: 300px; 
+    padding: 25px;
+}
+
+.container-de-opcoes img{
+    height: 100px;
+    width: 100px;
+    display: grid;
+}
+.container-de-opcoes{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+.btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    color: black;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: blueviolet;
+}
+
+.btn-container p{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.container-de-opcoes-controle{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.container-de-opcoes-controle img{
+    height: 25px;
+    width: 25px;
+}
+
+.btn-container-opcoes-controle-1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    color: black;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(0, 55, 235);
+}
+.btn-container-opcoes-controle-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    color: black;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(249, 241, 0);
+}
+.btn-container-opcoes-controle-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    color: black;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(3, 248, 23);
+}
+
+.btn-container-opcoes-controle p{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.fundo-controle{
+    margin-top: 10px;
+}
+
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #8700ad;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.btn-confirmar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    color: black;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(4, 255, 42);
+}
+
+.formulario-container h2{
+    font-size: 30px;
+}
+.formulario-container label{
+    font-size: 20px;
+    padding: 10px;
+}
+.formulario-container input{
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.new-user form select {
+    width: 100%;
+    padding: 2px;
+    margin-bottom: 25px;
+    border: 1px solid #8700ad;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+
+

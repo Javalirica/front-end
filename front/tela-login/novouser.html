@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Usuário</title>
+    <link rel="stylesheet" href="../estilos/stylehome.css">
+</head>
+<body>
+    <header class="cabecalho-home">
+
+        
+        <div class="logo-home" onclick="navigateTo('')">
+            <h3>Home</h3>
+        </div>
+
+        <div class="logo-user">
+            <h3>Usuário: Adm </h3>
+        </div>
+
+        <div class="email-login">
+            <h3>Login: user@gmail.com</h3>
+        </div>
+
+        <button class="btn-sair">Sair</button>
+    </header>
+
+    <section class="menu-lateral">
+
+        <div class="container-menu-lateral">
+
+            <img src="../imagens/home.png" alt="home">
+            <button class="btn-home">Home</button>
+
+            <img src="../imagens/pessoas.png" alt="pessoas">
+            <button class="btn-controle-usuarios">Controle de Usuários</button>
+
+            <img src="../imagens/user.png" alt="user">
+            <button class="btn-cadastrar-leitores">Cadastrar Leitores</button>
+
+            <img src="../imagens/livros.png" alt="livros">
+            <button class="btn-livors">Todos os Livros</button>
+
+            <img src="../imagens/emprestados.png" alt="">
+            <button class="btn-livros-emprestados">Livros Emprestados</button>
+        </div>
+
+    </section>
+
+    <section class="container-central">
+
+        <div class="formulario-container">
+
+            <h2>Novo Usuário: </h2>
+
+            <form action="#" method="post" class="new-user">
+
+                <label for="nome" class="new-user">Nome de Usuário </label>
+                <input type="nome" id="nome" name="nome" required>
+
+                <label for="email" >Email : </label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password" >Senha: </label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="password" >Repetir senha: </label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="status">Tipo de Usuário: </label>
+                <select name="status" id="status" required>
+                    <option value="ativo">ADM</option>
+                    <option value="inativo">Comun</option>
+                </select>
+
+            </form>
+
+            <button class="btn-confirmar">Cadastrar</button>
+
+        </div>
+    </section>
+</body>
+</html>
