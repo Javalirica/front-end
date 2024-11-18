@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javalirica</title>
-    <link rel="stylesheet" href="../imagens/style.css">
+    <link rel="stylesheet" href="../estilos/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="../interacao/script.js"></script>
 </head>
+
 <body>
-    <div class="container-home">
-        <img src="../imagens/logo.png" alt="fundo">
-        <h1>Bem-vindo ao Javalirica!</h1>
+    <div id="principal">
+        <div id="container-home">
+            <img src="../imagens/logo2.png" alt="fundo">
+            <h1>Bem-vindo ao Javalirica!</h1>
+        </div>
+        
+        <div id="login">
+            <form onsubmit="event.preventDefault();login();">
+        
+                <label for="email" class="email">Login: </label>
+                <input type="text" id="email" class="login-texto" placeholder="Digite seu email">
+                <label for="password" class="password">Senha: </label>
+                <input type="password" id="password" class="pass-login" placeholder="Digite sua senha">
+                
+                <div id="btn-login">
+                    <button type="button" onclick="login()" class="btn">Entrar</button>
+                </div>
+            </form>
+        </div>
+        <a href="primeiroAcesso.html" id="primeiroAcesso">Primeiro acesso? Cadastre-se</a>
     </div>
-
-    <form onsubmit="event.preventDefault();login();">
-        <div class="container-login">
-            <label for="email" class="email">Login: </label>
-            <input type="text" id="email" class="login-texto" placeholder="Digite seu email">
-        </div>
-
-        <div class="container-senha">
-            <label for="password" class="password">Senha: </label>
-            <input type="password" id="password" class="pass-login" placeholder="Digite sua senha">
-        </div>
-
-        <div class="btn-login">
-            <button type="button" onclick="login()" class="btn">Entrar</button>
-        </div>
-    </form>
 </body>
 </html>
