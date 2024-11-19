@@ -35,10 +35,10 @@
             <button onclick="chamaTelaCadastrarLeitores()" ><a>Cadastrar Leitores</a></button>
 
             <img src="../imagens/livros.png" alt="livros">
-            <button onclick="navigateTo('')"><a href="">Todos os Livros</a></button>
+            <button onclick="chamaTelaTodosOsLivros()"><a href="">Todos os Livros</a></button>
 
             <img src="../imagens/emprestados.png" alt="">
-            <button onclick="chamaTelaTodosOsLivros()"><a>Livros Emprestados</a></button>
+            <button onclick="chamaTelaLivrosEmprestados()"><a>Livros Emprestados</a></button>
         </div>
     
     </section>
@@ -55,11 +55,11 @@
                 <input type="number" id="code" name="code" required>
             
                 <label for="nome">Nome do Livro: </label>
-                <input type="text" id="text" name="text" required>
+                <input type="text" id="nome" name="nome" required>
             </div>
             <br>
             <div>
-                <label for="nome">Data de Cadastro: </label>
+                <label for="date">Data de Cadastro: </label>
                 <input type="date" id="date" name="date" required>
             <div>
             <br>
