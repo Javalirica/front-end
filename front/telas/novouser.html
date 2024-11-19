@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Usuário</title>
     <link rel="stylesheet" href="../estilos/stylehome.css">
+    <script src="../interacao/script.js"></script>
 </head>
 <body>
     <header class="cabecalho-home">
@@ -24,20 +25,21 @@
     
         <div class="container-menu-lateral">
     
+                
             <img src="../imagens/home.png" alt="home">
-            <button><a href="home.html">Home</a></button>
-    
+            <button onclick="chamaTelaHome()" ><a>Home</a></button>
+
             <img src="../imagens/pessoas.png" alt="pessoas">
-            <button><a href="controle.html">Controle de Usuários</a></button>
-    
+            <button onclick="chamaTelaControle()" ><a>Controle de Usuários</a></button>
+
             <img src="../imagens/user.png" alt="user">
-            <button><a href="cadastarr-leitores.html">Cadastrar Leitores</a></button>
-    
+            <button onclick="chamaTelaCadastrarLeitores()" ><a>Cadastrar Leitores</a></button>
+
             <img src="../imagens/livros.png" alt="livros">
-            <button><a href="todososlivros.html">Todos os Livros</a></button>
-    
+            <button onclick="navigateTo('')"><a href="">Todos os Livros</a></button>
+
             <img src="../imagens/emprestados.png" alt="">
-            <button><a href="livrosemprestados.html">Livros Emprestados</a></button>
+            <button onclick="chamaTelaTodosOsLivros()"><a>Livros Emprestados</a></button>
         </div>
     
     </section>
@@ -50,27 +52,32 @@
 
             <form action="#" method="post" class="new-user">
 
+            <div>
                 <label for="nome" class="new-user">Nome de Usuário </label>
                 <input type="nome" id="nome" name="nome" required>
 
                 <label for="email" >Email : </label>
                 <input type="email" id="email" name="email" required>
-
+            </div>
+            <br>
+            <div>
                 <label for="password" >Senha: </label>
                 <input type="password" id="password" name="password" required>
 
                 <label for="password" >Repetir senha: </label>
                 <input type="password" id="password" name="password" required>
-
+            </div>
+            <br>
+            <div>
                 <label for="status">Tipo de Usuário: </label>
                 <select name="status" id="status" required>
                     <option value="ativo">ADM</option>
                     <option value="inativo">Comun</option>
                 </select>
-
+            </div>
             </form>
 
-            <button class="btn-confirmar">Cadastrar</button>
+            <button onclick="cadastraUsario()" class="btn-confirmar">Cadastrar</button>
 
         </div>
     </section>

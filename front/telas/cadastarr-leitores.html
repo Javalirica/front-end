@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Leitores</title>
     <link rel="stylesheet" href="../estilos/stylehome.css">
+    <script src="../interacao/script.js"></script>
 </head>
 <body>
     <header class="cabecalho-home">
@@ -23,21 +24,21 @@
     <section class="menu-lateral">
     
         <div class="container-menu-lateral">
-    
+               
             <img src="../imagens/home.png" alt="home">
-            <button><a href="home.html">Home</a></button>
-    
+            <button onclick="chamaTelaHome()" ><a>Home</a></button>
+
             <img src="../imagens/pessoas.png" alt="pessoas">
-            <button><a href="controle.html">Controle de Usuários</a></button>
-    
+            <button onclick="chamaTelaControle()" ><a>Controle de Usuários</a></button>
+
             <img src="../imagens/user.png" alt="user">
-            <button><a href="cadastarr-leitores.html">Cadastrar Leitores</a></button>
-    
+            <button onclick="chamaTelaCadastrarLeitores()" ><a>Cadastrar Leitores</a></button>
+
             <img src="../imagens/livros.png" alt="livros">
-            <button><a href="todososlivros.html">Todos os Livros</a></button>
-    
+            <button onclick="navigateTo('')"><a href="">Todos os Livros</a></button>
+
             <img src="../imagens/emprestados.png" alt="">
-            <button><a href="livrosemprestados.html">Livros Emprestados</a></button>
+            <button onclick="chamaTelaTodosOsLivros()"><a>Livros Emprestados</a></button>
         </div>
     
     </section>
