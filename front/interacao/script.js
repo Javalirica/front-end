@@ -1,6 +1,16 @@
 const predefinidoEmail01 = "user@gmail.com";
 const predefinidosenha01 = "123";
 
+//body{
+//    background: url("../imagens/backgr.png");
+//    background-position: center;
+//    background-size: cover;
+ //   background-repeat: no-repeat;
+//    min-width: 100vh;
+//
+//}
+
+
 
 function login(){
     const email = document.getElementById("email").value.trim();
