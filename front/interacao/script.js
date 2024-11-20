@@ -120,11 +120,14 @@ function chamaTelaControle(){
 function chamaTelaCadastrarLeitores(){
     window.location.href = "cadastarr-leitores.html"
 }
-function chamaTelaTodosOsLivros(){
-    window.location.href = "todososlivros.html"
+function chamaTelaCasdastraLivro(){
+    //window.location.href = "buscaLivros.html"
 }
 function chamaTelaLivrosEmprestados(){
-    window.location.href = "livrosemprestados.html"
+    window.location.href = "locacoes.html"
+}
+function cadastraUsario(){
+    window.location.href = "novouser.html"
 }
 function getLogin(email,password){
 }

@@ -4,7 +4,14 @@
     box-sizing: border-box;
 }
 
+/*body{
+       background: url("../imagens/backgr.png");
+       background-position: center;
+       background-size: cover;
+       background-repeat: no-repeat;
+       min-width: 100vh;
 
+    }*/
 
 
 
@@ -45,6 +52,7 @@ h3{
     color: rgb(166, 159, 159);
     text-decoration: none;
 }
+
 
 .menu-lateral{
     margin-top: 30px;
@@ -88,8 +96,13 @@ h3{
 
 .container-central {
     margin-left: 300px; 
-    padding: 25px;
+    padding: 100px;
 }
+
+.container-central-livros {
+     margin-left: 300px; 
+     padding: 100px;
+ }
 
 .container-de-opcoes img{
     height: 100px;
