@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-/*body{
-       background: url("../imagens/backgr.png");
+body{
+       /*background: url("../imagens/backgr.png");*/
        background-position: center;
        background-size: cover;
        background-repeat: no-repeat;
        min-width: 100vh;
 
-    }*/
+    }
 
 
 
@@ -53,7 +53,7 @@ h3{
     text-decoration: none;
 }
 
-
+/*
 .menu-lateral{
     margin-top: 30px;
     width: 200px;
@@ -94,8 +94,11 @@ h3{
     margin-left: 10px;
 }
 
+*/
+
+
 .container-central {
-    margin-left: 300px; 
+    margin-left: 50px; 
     padding: 100px;
 }
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Usuários</title>
+    <title>Todos Usuário</title>
     <link rel="stylesheet" href="../estilos/stylehome.css">
     <script src="../interacao/script.js"></script>
 </head>
@@ -12,12 +12,14 @@
         <div class="logo-home">
             <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
         </div>
+        <!-- 
         <div class="logo-user">
             <h3>Usuário: Adm</h3>
         </div>
         <div class="email-login">
             <h3>Login: user@gmail.com</h3>
         </div>
+        -->
         <button class="btn-sair"><a href="index.html">Sair</a></button>
     </header>
 
@@ -25,8 +27,7 @@
     
         <div class="container-menu-lateral">
     
-                
-        <!--  
+            <!-- 
             <img src="../imagens/home.png" alt="home">
             <button onclick="chamaTelaHome()" ><a>Home</a></button>
 
@@ -41,37 +42,45 @@
 
             <img src="../imagens/emprestados.png" alt="">
             <button onclick="chamaTelaLivrosEmprestados()"><a>Livros Emprestados</a></button>
-        -->
+
+            -->
         </div>
     
     </section>
 
     <section class="container-central">
 
-        <div class="container-de-opcoes-controle">
-            <h1>Controle de administradores</h1>
+        <div class="formulario-container">
 
-            <div class="btn-container-opcoes-controle-1" onclick="navigateTo('')">
-                <img src="../imagens/cadeado.png" alt="">
-                <p>Alterar Senha</p> 
+            <h2>Usuários: </h2>
+
+            <form action="#" method="post" class="new-user">
+
+                <label for="number">Id Usuário </label>
+                <input type="number" id="number" name="number" required>
+
+                <label for="nome" class="new-user">Nome de Usuário </label>
+                <input type="nome" id="nome" name="nome" required>
+
+                <label for="email" >Email : </label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="status">Tipo: </label>
+                <select name="status" id="status" required>
+                    <option value="ativo">ADM</option>
+                    <option value="inativo">Comun</option>
+                </select>
+
+            </form>
+
+            <div> 
+
+                <button class="btn-confirmar">Confirmar </button>
+    
             </div>
-
-            <div class="btn-container-opcoes-controle-2" onclick="navigateTo('')">
-                <img src="../imagens/pessoaplus.png" alt="">
-                <p>Criar novo usuário</p>
-            </div>
-
-            <div class="btn-container-opcoes-controle-3" onclick="navigateTo('')">
-                <img src="../imagens/pessoas.png" alt="">
-                <p>Ver todos os usuário</p> 
-            </div>
-
-        </div>
         
-        <div class="fundo-controle">
-            <img src="../imagens/fundo.jpg" alt="">
+           
         </div>
-
     </section>
 </body>
 </html>
