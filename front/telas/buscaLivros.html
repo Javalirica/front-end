@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../estilos/stylehome.css">
     <script src="../interacao/script.js"></script>
 </head>
-<body>
+<body onload="desligaTabela()"">
     <header class="cabecalho-home">
         <div class="logo-home">
             <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
@@ -64,8 +64,60 @@
             <div>
                 <br>
             </div>
-                <button onclick="buscaLivro()"class="btn-confirmar">Confirmar</button>
+                <button onclick="buscaLivro(),desligaTabela()"class="btn-confirmar">Confirmar</button>
             </div>
+            <br>
+            <br>
+            <table id="TABELA_LIVROS" class="table" cellspacing="0" tablename="TABELA_LIVROS" noaddbutton="true" customFnDelete="deleteLinhaTabela(this, 'TABELA_LIVROS')">
+                <thead> 
+                    <tr class="tableHeadRow">
+                        <th class="tableColumn"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="tableColumn">
+                        
+                                <div class="row">
+                                
+                                    <div class="form-group col-xs-12 col-md-12">
+                                        <label for="CODIGOSERVICOEXTERNO">Serviço:</label>
+                                        <input type="hidden" id="IDPRDSERVICOEXTERNO" name="IDPRDSERVICOEXTERNO" value="">
+                                        <input type="hidden" id="ULTIMOPRECOSERVICOEXTERNO" name="ULTIMOPRECOSERVICOEXTERNO" value="">
+                                        <input type="hidden" id="CODIGOSERVICOEXTERNO" name="CODIGOSERVICOEXTERNO" value="">
+                                        <input type="hidden" id="DESCRICAOSERVICOEXTERNO" name="DESCRICAOSERVICOEXTERNO" value="">
+                                    
+                                    
+                                </div>
+                                <div class="row">
+
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label for="UNIDADESERVICOEXTERNO">Unidade:</label>
+                                        <input type="text" id="UNIDADESERVICOEXTERNO" name="UNIDADESERVICOEXTERNO" value="" class="form-control" readonly="readonly">
+                                    </div>
+                                    
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label for="QUANTIDADESERVICOEXTERNO">Quantidade:</label>
+                                        <input type="number" id="QUANTIDADESERVICOEXTERNO" name="QUANTIDADESERVICOEXTERNO" value="" min="0" class="form-control">
+                                    </div>
+
+                                    
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label for="UNIDADESERVICOEXTERNO">Unidade:</label>
+                                        <input type="text" id="UNIDADESERVICOEXTERNO" name="UNIDADESERVICOEXTERNO" value="" class="form-control" readonly="readonly">
+                                    </div>
+                                    
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label for="QUANTIDADESERVICOEXTERNO">Quantidade:</label>
+                                        <input type="number" id="QUANTIDADESERVICOEXTERNO" name="QUANTIDADESERVICOEXTERNO" value="" min="0" class="form-control">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
       
             
               <!--<div>

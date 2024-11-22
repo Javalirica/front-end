@@ -195,6 +195,14 @@ function meu_callback_cep(conteudo) {
 }
 
 
+function desligaTabela(){
+    console.log("CEP não encontrado.");
+    var tabela = document.getElementById("TABELA_LIVROS");
+    tabela.style.display = "block"; // ou "block", se preferir
+
+}
+
+
 
 
 
