@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Leitores</title>
+    <link rel="stylesheet" href="../estilos/stylehome.css">
+    <script src="../interacao/script.js"></script>
+</head>
+<body>
+    <header class="cabecalho-home">
+        <div class="logo-home">
+            <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
+        </div>
+       <!-- 
+        <div class="logo-user">
+            <h3>Usuário: Adm</h3>
+        </div>
+        <div class="email-login">
+            <h3>Login: user@gmail.com</h3>
+        </div>
+        -->
+        <button class="btn-sair"><a href="index.html">Sair</a></button>
+    </header>
+
+    <section class="menu-lateral">
+    
+        <div class="container-menu-lateral">
+               
+           <!--  
+            <img src="../imagens/home.png" alt="home">
+            <button onclick="chamaTelaHome()" ><a>Home</a></button>
+
+            <img src="../imagens/pessoas.png" alt="pessoas">
+            <button onclick="chamaTelaControle()" ><a>Controle de Usuários</a></button>
+
+            <img src="../imagens/user.png" alt="user">
+            <button onclick="chamaTelaCadastrarLeitores()" ><a>Cadastrar Leitores</a></button>
+
+            <img src="../imagens/livros.png" alt="livros">
+            <button onclick="chamaTelaTodosOsLivros()"><a href="">Todos os Livros</a></button>
+
+            <img src="../imagens/emprestados.png" alt="">
+            <button onclick="chamaTelaLivrosEmprestados()"><a>Livros Emprestados</a></button>
+        -->
+        </div>
+    
+    </section>
+
+    <section class="container-central">
+
+        <div class="formulario-container">
+
+            <h2>Locar Livros</h2>
+
+            <form action="#" method="post">
+
+            <div>
+                <label for="nomeLivro">Nome Livro: </label>
+                <input type="text" id="nomeLivro" name="nomeLivro" required>
+
+                <label for="codLivro">Codigo Livro: </label>
+                <input type="text" id="codLivro" name="codLivro" required>
+            </div>
+            <br>
+            <div>
+                <label for="dataLocacao">Data da Locação: </label>
+                <input type="date" id="dataLocacao" name="dataLocacao" required>
+
+                <label for="dataEntrega">Data da Entrega: </label>
+                <input type="date" id="dataEntrega" name="dataEntrega" required>
+
+            </div>
+            </form>
+
+            <br>
+            <button class="btn-confirmar">Confirmar Locação</button>
+
+        </div>
+    </section>
+</body>
+</html>
