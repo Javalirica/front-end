@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../estilos/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="../interacao/script.js"></script>
+    <script src="../interacao/login.js"></script>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         </div>
         
         <div id="login">
-            <form onsubmit="event.preventDefault();login();">
+            <form onsubmit="event.preventDefault()">
         
                 <label for="email" class="email">Login: </label>
                 <input type="text" id="email" class="login-texto" placeholder="Digite seu email">
@@ -25,7 +26,7 @@
                 <input type="password" id="password" class="pass-login" placeholder="Digite sua senha">
                 
                 <div id="btn-login">
-                    <button type="button" onclick="login()" class="btn">Entrar</button>
+                    <button type="button" onclick="postLogin()" class="btn">Entrar</button>
                 </div>
             </form>
         </div>
