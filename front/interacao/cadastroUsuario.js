@@ -39,3 +39,28 @@ function validaCadastroUsuario(nomeUsuario,emailUsuario,senhaUsuario,valisaSenha
 
 
 }
+
+
+// Request:
+// Descrição: Criar um novo gerenciador .
+// Método: Post
+// Url:  3.141.87.82:8080/gerenciador/novo
+// Body: 
+// {
+//   "nome": "guilherme Silva",
+//   "role": "SUBADMIN",
+//   "email": "guilherme1@gmail.com",
+//   "senha": "senha123"
+// }
+
+// Exemplo de resposta: 201 -ok
+// }
+//   "nome": "guilherme Silva",
+//   "role": "SUBADMIN",
+//   "email": "guilherme1@gmail.com",
+//     "senha": "$2a$10$z74TvyN4sTMPCV0NCfCYt.jJzGE9paGdcm3FYF9CWnDuIlq9YIJkq"
+// }
+// Erros: 
+// 400: Erro ao tentar criar o administrador.
+// 409: Email já cadastrado.
+

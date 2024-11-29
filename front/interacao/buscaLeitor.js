@@ -1,4 +1,3 @@
-
 // Leitor
 // Request:
 // Descrição: Bucar Todos.
@@ -37,21 +36,4 @@
 // Erros:  
 // 404: Leitor não encontrado 
 // 409: Já existe um usuário com este email.
-
-
-// Request:
-// Descrição: Bloquear leitor por cpf.
-// Método: Put
-// Url:  3.141.87.82:8080/leitor/bloquear/00197659080
-// Body: 
-// Exemplo de resposta: 204 
-// Erros:  
-// 404: Leitor não encontrado 
-
-
-
-
-
-
-
 
