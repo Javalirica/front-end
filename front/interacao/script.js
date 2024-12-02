@@ -10,7 +10,7 @@ function chamaTelaCadastrarLeitores(){
 }
 
 function chamaTelaCasdastraLivro(){
-    //window.location.href = "buscaLivros.html"
+    window.location.href = "cadastraLivro.html"
 }
 function chamaTelaLivrosEmprestados(){
     window.location.href = "locacoes.html"

@@ -1,73 +1,64 @@
-function login(){
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
+// Função principal de login
+function login() {
+  console.log("Função login chamada");
 
-    getLogin(email,password)
+  // Obtendo os valores dos campos
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
 
-    if(!email || !password){
-        alert("Por favor, preencha todos os campos")
-        return;
-    }
+  console.log("Email:", email, "Password:", password);
 
-    if (email == predefinidoEmail01  && password == predefinidosenha01){
-        alert("Login efetuado com sucesso!")
-        window.location.href = "home.html"
+  try {
+      console.log("Chamando handleLoginFormSubmit");
+      handleLoginFormSubmit(email, password);
+  } catch (error) {
+      console.error("Erro na função login:", error);
+  }
 
-        chamaTelaHome()
-    }
-    else {
-        alert("Email ou senha incorretos!")
-    }
-    
-    //se ternotar true chama home 
-    
-
+  // Redirecionamento desabilitado para evitar limpar os logs durante o teste
+  // chamaTelaHome();
 }
 
+// Função para processar o envio do login
+function handleLoginFormSubmit(email, password) {
+  console.log("handleLoginFormSubmit chamado com:", email, password);
 
+  // Dados do login
+  const loginData = { email, password };
 
-document.getElementById('loginForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-  
-    // Obtendo os valores do formulário
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-  
-    // Dados que serão enviados no corpo da requisição
-    const loginData = {
-      email: email,
-      password: password
-    };
-  
-    try {
-      // Fazendo a requisição POST para a rota de login
-      const response = await fetch('http://18.119.9.64:8080/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(loginData)
+  // Requisição POST para a API
+  fetch('http://3.141.87.82:8080/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(loginData),
+  })
+      .then(response => {
+          if (response.ok) {
+              return response.json();
+          } else {
+              return response.json().then(errorData => {
+                  throw new Error(errorData.message);
+              });
+          }
+      })
+      .then(data => {
+          const token = data.token; // Assumindo que a resposta contém o token
+          localStorage.setItem('authToken', token);
+
+          alert('Login bem-sucedido!');
+          console.log('Token JWT:', token);
+            window.location.href = "home.html"
+          // Redirecionamento desativado durante os testes
+          // window.location.href = 'leitores.html';
+      })
+      .catch(error => {
+          console.error('Erro de requisição:', error);
+          alert('Erro ao tentar fazer login: ' + error.message);
       });
-  
-      // Verificando se a resposta foi bem-sucedida
-      if (response.ok) {
-        const data = await response.json();
-        const token = data.token; // Aqui estamos assumindo que a resposta tem um campo token
-  
-        // Armazenando o token para uso futuro
-        localStorage.setItem('authToken', token);
-  
-        alert('Login bem-sucedido!');
-        console.log('Token JWT:', token);
-  
-        // Redireciona para a página de leitores após o login bem-sucedido
-        window.location.href = 'leitores.html'; // Redirecionando para a página de leitores
-      } else {
-        const errorData = await response.json();
-        alert('Erro no login: ' + errorData.message);
-      }
-    } catch (error) {
-      console.error('Erro de requisição:', error);
-      alert('Erro ao tentar fazer login. Tente novamente mais tarde.');
-    }
+}
+
+// Associar o evento de envio ao formulário
+document.getElementById('loginForm').addEventListener('submit', function (e) {
+  e.preventDefault(); // Impede o recarregamento da página
+  login(); // Chama a função de login
 });
