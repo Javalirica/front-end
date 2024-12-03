@@ -1,0 +1,62 @@
+
+#container-central {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.Pesquisar-nome {
+    font-size: 18px;
+    margin: 80px; 
+}
+.Pesquisar-nome h2 {
+    width: 300px;
+    margin-bottom: 15px;
+}
+.Pesquisar-nome label {
+   
+}
+.Pesquisar-nome input {
+   
+    margin-left: 10px;
+}
+.butaoPesquisar {
+    background-color: rgb(213, 17, 17);
+    border-radius: 5px;
+    color: #fff ;
+    border-color: rgb(213, 17, 17);
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-left: auto;
+    margin-right: 25px;
+    cursor: pointer;
+}
+.butaoCadastrar {
+    background-color: rgb(213, 17, 17);
+    border-radius: 5px;
+    color: #fff;
+    border-color: rgb(213, 17, 17);
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+#lista-livros h1{
+    text-align: center;
+    margin-top: 40px;
+}
+.tabela-livros {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabela-livros th,
+.tabela-livros td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tabela-livros th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}

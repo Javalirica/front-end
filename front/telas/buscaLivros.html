@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todos os Livros</title>
     <link rel="stylesheet" href="../estilos/stylehome.css">
+    <link rel="stylesheet" href="../estilos/buscarLivros.css">
     <script src="../interacao/script.js"></script>
     <script src="../interacao/alterarSenha.js"></script>
     <script src="../interacao/buscaLivros.js"></script>
@@ -16,143 +17,35 @@
     <script src="../interacao/locarLivro.js"></script>
     <script src="../interacao/novoUser.js"></script>
 </head>
-<body onload="desligaTabela()"">
+<body onload="desligaTabela()">
     <header class="cabecalho-home">
         <div class="logo-home">
             <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
         </div>
-        <!-- 
-        <div class="logo-user">
-            <h3>Usuário: Adm</h3>
-        </div>
-        <div class="email-login">
-            <h3>Login: user@gmail.com</h3>
-        </div>
-        -->
         <button class="btn-sair"><a href="index.html">Sair</a></button>
     </header>
-  <!-- 
-    <section class="menu-lateral">
-    
-     <div class="container-menu-lateral">
-        
-            <img src="../imagens/home.png" alt="home">
-            <button  onclick="chamaTelaHome()" ><a>Home</a></button>
+    <section id="container-central">
 
-            <img src="../imagens/pessoas.png" alt="pessoas">
-            <button  onclick="chamaTelaControle()" ><a>Controle de Usuários</a></button>
+        <div class="Pesquisar-nome">
 
-            <img src="../imagens/user.png" alt="user">
-            <button  onclick="chamaTelaCadastrarLeitores()" ><a>Cadastrar Leitores</a></button>
-
-            <img src="../imagens/livros.png" alt="livros">
-            <button  onclick="chamaTelaTodosOsLivros()"><a href="">Todos os Livros</a></button>
-
-            <img src="../imagens/emprestados.png" alt="">
-            <button  onclick="chamaTelaLivrosEmprestados()"><a>Livros Emprestados</a></button>
-        </div>
-    
-    
-    </section>
--->
-    <section class="container-central">
-
-        <div class="formulario-container">
-
-            <h2>Todos os Livros</h2>
-
-            <form action="#" method="post">
-            <div>
-                <label for="code">Código do livro: </label>
-                <input type="number" id="code" name="code" required>
-            <div>
-                <br>
-            </div>
-                <label for="nome">Nome do Livro: </label>
-                <input type="text" id="nome" name="nome" required>
-            <div>
-                <br>
-            </div>
-                <button onclick="buscaLivro(),desligaTabela()"class="btn-confirmar">Confirmar</button>
-            </div>
-            <br>
-            <br>
-            <table id="TABELA_LIVROS" class="table" cellspacing="0" tablename="TABELA_LIVROS" noaddbutton="true" customFnDelete="deleteLinhaTabela(this, 'TABELA_LIVROS')">
-                <thead> 
-                    <tr class="tableHeadRow">
-                        <th class="tableColumn"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th class="tableColumn">
-                        
-                                <div class="row">
-                                
-                                    <div class="form-group col-xs-12 col-md-12">
-                                        <label for="CODIGOSERVICOEXTERNO">Serviço:</label>
-                                        <input type="hidden" id="IDPRDSERVICOEXTERNO" name="IDPRDSERVICOEXTERNO" value="">
-                                        <input type="hidden" id="ULTIMOPRECOSERVICOEXTERNO" name="ULTIMOPRECOSERVICOEXTERNO" value="">
-                                        <input type="hidden" id="CODIGOSERVICOEXTERNO" name="CODIGOSERVICOEXTERNO" value="">
-                                        <input type="hidden" id="DESCRICAOSERVICOEXTERNO" name="DESCRICAOSERVICOEXTERNO" value="">
-                                    
-                                    
-                                </div>
-                                <div class="row">
-
-                                    <div class="form-group col-xs-12 col-md-4">
-                                        <label for="UNIDADESERVICOEXTERNO">Unidade:</label>
-                                        <input type="text" id="UNIDADESERVICOEXTERNO" name="UNIDADESERVICOEXTERNO" value="" class="form-control" readonly="readonly">
-                                    </div>
-                                    
-                                    <div class="form-group col-xs-12 col-md-4">
-                                        <label for="QUANTIDADESERVICOEXTERNO">Quantidade:</label>
-                                        <input type="number" id="QUANTIDADESERVICOEXTERNO" name="QUANTIDADESERVICOEXTERNO" value="" min="0" class="form-control">
-                                    </div>
-
-                                    
-                                    <div class="form-group col-xs-12 col-md-4">
-                                        <label for="UNIDADESERVICOEXTERNO">Unidade:</label>
-                                        <input type="text" id="UNIDADESERVICOEXTERNO" name="UNIDADESERVICOEXTERNO" value="" class="form-control" readonly="readonly">
-                                    </div>
-                                    
-                                    <div class="form-group col-xs-12 col-md-4">
-                                        <label for="QUANTIDADESERVICOEXTERNO">Quantidade:</label>
-                                        <input type="number" id="QUANTIDADESERVICOEXTERNO" name="QUANTIDADESERVICOEXTERNO" value="" min="0" class="form-control">
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
-      
+            <h2>Pesquisar por nome:</h2>
             
-              <!--<div>
-                <label for="date">Data de Cadastro: </label>
-                <input type="date" id="date" name="date" required>
-            <div>
-            <br>
-            </div>
-                <label for="status">Situação: </label>
-                <select name="status" id="status" required>
-                    <option value="ativo">Disponível</option>
-                    <option value="inativo">Alugado</option>
-                </select>
-            </div> -->
-            </form>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </div>
-                 <button onclick="chamaTelaCasdastraLivro()"class="btn-confirmar">Cadastrar Livro</button>
-        </div>
+            <label for="nome" class="campoBucar">Nome do Livro: </label>
+            <input type="text" id="nome" name="nome" required placeholder=" Nome">
+            <button onclick="buscaLivro(),desligaTabela()" class="butaoPesquisar">Buscar</button>
+           <div>
+                <button onclick="chamaTelaCasdastraLivro()" class="butaoCadastrar">Cadastrar Livro</button>
+           </div> 
 
-          
+           <div id="lista-livros">
 
+                <h1>Lista de livros disponiveis </h1>
+                <div id="lista-livros-tabela">
+    
+                </div>
+
+
+           </div>
         </div>
     </section>
 </body>
