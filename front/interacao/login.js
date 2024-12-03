@@ -43,18 +43,43 @@ function handleLoginFormSubmit(email, password) {
       })
       .then(data => {
           const token = data.token; // Assumindo que a resposta contém o token
-          localStorage.setItem('authToken', token);
+          localStorage.setItem('authToken', token); // Armazenando o token
 
           alert('Login bem-sucedido!');
           console.log('Token JWT:', token);
-            window.location.href = "home.html"
-          // Redirecionamento desativado durante os testes
-          // window.location.href = 'leitores.html';
+
+          // Redireciona para home.html após login
+          window.location.href = "home.html";
       })
       .catch(error => {
           console.error('Erro de requisição:', error);
           alert('Erro ao tentar fazer login: ' + error.message);
       });
+}
+
+// Função para acessar dados protegidos usando o token
+function getProtectedData() {
+    const token = localStorage.getItem('authToken'); // Recuperando o token
+
+    if (!token) {
+        console.log("Usuário não autenticado");
+        return;
+    }
+
+    fetch('http://3.141.87.82:8080/protected/resource', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Adicionando o token no cabeçalho
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Dados protegidos:', data);
+    })
+    .catch(error => {
+        console.error('Erro ao acessar recurso protegido:', error);
+    });
 }
 
 // Associar o evento de envio ao formulário

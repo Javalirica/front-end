@@ -1,58 +1,28 @@
-
-// // Leitor
-// // Request:
-// // Descrição: Bucar Todos.
-// // Método: Get
-// // Url:  3.141.87.82:8080/leitor/todos
-// // Body: 
-// // Exemplo de resposta: 200
-// // {
-// // 	Retorna uma lista com todos os leitores 
-// // }
-// // Erros: 
-// // 500: Erro interno 
+// // fetchAllReaders();
 
 
-
-// // Request:
-// // Descrição: Bucar por cpf.
-// // Método: Get
-// // Url:  3.141.87.82:8080/leitor/00197659080
-// // Body: 
-// // Exemplo de resposta: 200
-// // {
-// // 	Retorna o obj do leitor
-// // }
-// // Erros:  404: Leitor não encontrado 
-// // Request:
-// // Descrição: Atualizar leitor por cpf.
-// // Método: Put
-// // Url:  3.141.87.82:8080/leitor/00197659080
-// // Body: 
-// // {
-// //     "email": "cr7@gmail.com"
-// // }
-
-// // Exemplo de resposta: 204
-// // Erros:  
-// // 404: Leitor não encontrado 
-// // 409: Já existe um usuário com este email.
+// // fetchReaderByCpf('00197659080');
 
 
-// // Request:
-// // Descrição: Bloquear leitor por cpf.
-// // Método: Put
-// // Url:  3.141.87.82:8080/leitor/bloquear/00197659080
-// // Body: 
-// // Exemplo de resposta: 204 
-// // Erros:  
-// // 404: Leitor não encontrado 
+// // updateReaderEmailByCpf('00197659080', 'cr7@gmail.com');
 
-// // Função para buscar todos os leitores
+
+// // blockReaderByCpf('00197659080');
+
 // async function fetchAllReaders() {
+//     const token = localStorage.getItem('authToken');  // Recupera o token do localStorage
+
+//     if (!token) {
+//         alert('Você precisa estar autenticado para acessar esta página.');
+//         return;
+//     }
+
 //     try {
 //         const response = await fetch('http://3.141.87.82:8080/leitor/todos', {
-//             method: 'GET'
+//             method: 'GET',
+//             headers: {
+//                 'Authorization': `Bearer ${token}`  // Passa o token no cabeçalho de autorização
+//             }
 //         });
 
 //         if (response.ok) {
@@ -67,11 +37,21 @@
 //     }
 // }
 
-// // Função para buscar um leitor pelo CPF
+// // Função para buscar um leitor pelo CPF com autenticação
 // async function fetchReaderByCpf(cpf) {
+//     const token = localStorage.getItem('authToken');  // Recupera o token do localStorage
+
+//     if (!token) {
+//         alert('Você precisa estar autenticado para acessar esta página.');
+//         return;
+//     }
+
 //     try {
 //         const response = await fetch(`http://3.141.87.82:8080/leitor/${cpf}`, {
-//             method: 'GET'
+//             method: 'GET',
+//             headers: {
+//                 'Authorization': `Bearer ${token}`  // Passa o token no cabeçalho de autorização
+//             }
 //         });
 
 //         if (response.ok) {
@@ -86,13 +66,21 @@
 //     }
 // }
 
-// // Função para atualizar o email de um leitor pelo CPF
+// // Função para atualizar o email de um leitor pelo CPF com autenticação
 // async function updateReaderEmailByCpf(cpf, email) {
+//     const token = localStorage.getItem('authToken');  // Recupera o token do localStorage
+
+//     if (!token) {
+//         alert('Você precisa estar autenticado para acessar esta página.');
+//         return;
+//     }
+
 //     try {
 //         const response = await fetch(`http://3.141.87.82:8080/leitor/${cpf}`, {
 //             method: 'PUT',
 //             headers: {
-//                 'Content-Type': 'application/json'
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${token}`  // Passa o token no cabeçalho de autorização
 //             },
 //             body: JSON.stringify({ email })
 //         });
@@ -110,11 +98,21 @@
 //     }
 // }
 
-// // Função para bloquear um leitor pelo CPF
+// // Função para bloquear um leitor pelo CPF com autenticação
 // async function blockReaderByCpf(cpf) {
+//     const token = localStorage.getItem('authToken');  // Recupera o token do localStorage
+
+//     if (!token) {
+//         alert('Você precisa estar autenticado para acessar esta página.');
+//         return;
+//     }
+
 //     try {
 //         const response = await fetch(`http://3.141.87.82:8080/leitor/bloquear/${cpf}`, {
-//             method: 'PUT'
+//             method: 'PUT',
+//             headers: {
+//                 'Authorization': `Bearer ${token}`  // Passa o token no cabeçalho de autorização
+//             }
 //         });
 
 //         if (response.status === 204) {
@@ -127,24 +125,5 @@
 //         alert('Erro de conexão. Tente novamente.');
 //     }
 // }
-
-// // Exemplo de chamadas às funções
-// // Buscar todos os leitores
-// fetchAllReaders();
-
-// // Buscar leitor pelo CPF
-// fetchReaderByCpf('00197659080');
-
-// // Atualizar email de um leitor pelo CPF
-// updateReaderEmailByCpf('00197659080', 'cr7@gmail.com');
-
-// // Bloquear leitor pelo CPF
-// blockReaderByCpf('00197659080');
-
-
-
-
-
-
 
 
