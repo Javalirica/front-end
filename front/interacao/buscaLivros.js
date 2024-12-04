@@ -1,87 +1,100 @@
+let paginaAtual = 1; // Controla a página atual
+const livrosPorPagina = 5; // Limite de livros por página
 
-
-async function buscaLivro() {
-    const nome = document.getElementById("nome").value.trim(); // Obtém o nome digitado
-    const token = localStorage.getItem('authToken'); // Recupera o token do localStorage
-
-    if (!nome) {
-        alert('Por favor, insira um nome para buscar.');
-        return;
-    }
+// Função para buscar livros por nome
+async function buscaLivrosPorNome(nome) {
+    const token = localStorage.getItem("authToken");
 
     if (!token) {
-        alert('Você precisa estar autenticado para acessar esta página.');
+        alert("Você precisa estar autenticado para acessar esta página.");
         return;
     }
 
     try {
-        const response = await fetch(`http://3.141.87.82:8080/v1/livro/nome?nome=${encodeURIComponent(nome)}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json',
+        const response = await fetch(
+            `http://3.141.87.82:8080/v1/livro/nome?nome=${encodeURIComponent(nome)}`,
+            {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
             }
-        });
+        );
 
         if (response.ok) {
             const livros = await response.json();
-            exibirLivros(livros); // Atualiza a tabela com os livros encontrados
+            console.log("Lista de livros com o nome:", livros);
+
+            // Aplica paginação na busca por nome
+            const livrosPaginados = livros.slice(
+                (paginaAtual - 1) * livrosPorPagina,
+                paginaAtual * livrosPorPagina
+            );
+
+            exibirLivros(livrosPaginados);
         } else if (response.status === 500) {
-            alert('Erro interno no servidor. Tente novamente mais tarde.');
-        } else if (response.status === 404) {
-            alert('Nenhum livro encontrado com esse nome.');
-            exibirLivros([]); // Limpa a tabela
+            alert("Erro interno no servidor. Tente novamente mais tarde.");
         }
     } catch (error) {
-        console.error('Erro ao buscar livros por nome:', error);
-        alert('Erro de conexão. Tente novamente.');
+        console.error("Erro ao buscar livros por nome:", error);
+        alert("Erro de conexão. Tente novamente.");
     }
 }
 
+// Função para buscar todos os livros
 async function fetchAllBooks() {
     try {
-        const token = localStorage.getItem('authToken'); // Obtém o token do localStorage
+        const token = localStorage.getItem("authToken");
 
         if (!token) {
-            alert('Token de autenticação não encontrado. Faça login novamente.');
+            alert("Token de autenticação não encontrado. Faça login novamente.");
             return;
         }
 
-        const response = await fetch('http://3.141.87.82:8080/v1/livro/todos', {
-            method: 'GET',
+        const response = await fetch("http://3.141.87.82:8080/v1/livro/todos", {
+            method: "GET",
             headers: {
-                'Authorization': `Bearer ${token}`, // Inclui o token no cabeçalho
-                'Content-Type': 'application/json',
-            }
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
         });
 
         if (response.ok) {
             const livros = await response.json();
-            console.log('Lista de todos os livros:', livros); // Apenas para depuração
-            exibirLivros(livros); // Exibe os livros na página
+            console.log("Lista de todos os livros:", livros);
+
+            // Aplica paginação
+            const livrosPaginados = livros.slice(
+                (paginaAtual - 1) * livrosPorPagina,
+                paginaAtual * livrosPorPagina
+            );
+
+            exibirLivros(livrosPaginados);
         } else if (response.status === 401) {
-            alert('Não autorizado. Faça login novamente.');
-            console.error('Erro 401: Não autorizado');
+            alert("Não autorizado. Faça login novamente.");
+            console.error("Erro 401: Não autorizado");
         } else if (response.status === 500) {
-            alert('Erro interno no servidor. Tente novamente mais tarde.');
-            console.error('Erro 500: Erro interno');
+            alert("Erro interno no servidor. Tente novamente mais tarde.");
+            console.error("Erro 500: Erro interno");
         } else {
             alert(`Erro ao buscar livros: ${response.statusText}`);
             console.error(`Erro: ${response.statusText}`);
         }
     } catch (error) {
-        console.error('Erro ao buscar todos os livros:', error);
-        alert('Erro de conexão. Tente novamente.');
+        console.error("Erro ao buscar todos os livros:", error);
+        alert("Erro de conexão. Tente novamente.");
     }
 }
 
 // Função para exibir os livros no DOM
 function exibirLivros(livros) {
     const listaLivrosDiv = document.getElementById("lista-livros-tabela");
+    const botaoProximo = document.getElementById("botao-proximo");
     listaLivrosDiv.innerHTML = ""; // Limpa conteúdo anterior
 
     if (livros.length === 0) {
-        listaLivrosDiv.innerHTML = "<p>Nenhum livro disponível.</p>";
+        listaLivrosDiv.innerHTML = "<p>Nenhum livro encontrado.</p>";
+        botaoProximo.style.display = "none"; // Oculta o botão se não houver livros
         return;
     }
 
@@ -106,7 +119,7 @@ function exibirLivros(livros) {
     const tbody = tabela.querySelector("tbody");
 
     // Preenchendo os dados
-    livros.forEach(livro => {
+    livros.forEach((livro) => {
         const tr = document.createElement("tr");
 
         tr.innerHTML = `
@@ -122,9 +135,43 @@ function exibirLivros(livros) {
     });
 
     listaLivrosDiv.appendChild(tabela);
+
+    // Oculta o botão "Próximo" se houver menos de 5 livros
+    if (livros.length < livrosPorPagina) {
+        botaoProximo.style.display = "none";
+    } else {
+        botaoProximo.style.display = "inline-block"; // Mostra o botão se houver mais páginas
+    }
+}
+
+// Função para avançar a página
+function proximaPagina() {
+    paginaAtual++;
+    const nome = document.getElementById("nome").value.trim();
+
+    if (nome) {
+        buscaLivrosPorNome(nome);
+    } else {
+        fetchAllBooks();
+    }
+}
+
+// Função para buscar livros por nome
+function buscaLivro() {
+    const nome = document.getElementById("nome").value.trim();
+
+    if (nome === "") {
+        alert("Digite um nome para pesquisar.");
+        return;
+    }
+
+    paginaAtual = 1; // Reinicia a página atual ao fazer uma nova pesquisa
+    buscaLivrosPorNome(nome);
 }
 
 // Chamando a função ao carregar a página
 document.addEventListener("DOMContentLoaded", fetchAllBooks);
 
-
+function chamaTelaCadastraLivro() {
+    window.location.href = "cadastraLivro.html"; // Altere para o caminho correto da página
+}

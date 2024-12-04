@@ -6,18 +6,9 @@
     <title>Todos os Livros</title>
     <link rel="stylesheet" href="../estilos/stylehome.css">
     <link rel="stylesheet" href="../estilos/buscarLivros.css">
-    <script src="../interacao/script.js"></script>
-    <script src="../interacao/alterarSenha.js"></script>
     <script src="../interacao/buscaLivros.js"></script>
-    <script src="../interacao/buscaLocacoes.js"></script>
-    <script src="../interacao/buscaUsuarios.js"></script>
-    <script src="../interacao/cadastraLivro.js"></script>
-    <script src="../interacao/cadastrarLeitores.js"></script>
-    <script src="../interacao/controleUsuarios.js"></script>
-    <script src="../interacao/locarLivro.js"></script>
-    <script src="../interacao/novoUser.js"></script>
 </head>
-<body onload="desligaTabela()">
+<body onload="fetchAllBooks()">
     <header class="cabecalho-home">
         <div class="logo-home">
             <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
@@ -25,27 +16,21 @@
         <button class="btn-sair"><a href="index.html">Sair</a></button>
     </header>
     <section id="container-central">
-
         <div class="Pesquisar-nome">
-
             <h2>Pesquisar por nome:</h2>
-            
             <label for="nome" class="campoBucar">Nome do Livro: </label>
             <input type="text" id="nome" name="nome" required placeholder=" Nome">
             <button onclick="buscaLivro()" class="butaoPesquisar">Buscar</button>
-           <div>
-                <button onclick="chamaTelaCasdastraLivro()" class="butaoCadastrar">Cadastrar Livro</button>
-           </div> 
+            <div>
+                <button onclick="chamaTelaCadastraLivro()" class="butaoCadastrar">Cadastrar Livro</button>
+            </div> 
 
-           <div id="lista-livros">
-
-                <h1>Lista de livros:  </h1>
-                <div id="lista-livros-tabela">
-    
-                </div>
-
-
-           </div>
+            <div id="lista-livros">
+                <h1>Lista de livros disponíveis</h1>
+                <div id="lista-livros-tabela"></div>
+                <div id="paginacao" class="paginacao"></div> <!-- Adicionado para paginação -->
+                <button id="botao-proximo" class="butaoPesquisar" onclick="proximaPagina()">Próximo</button>
+            </div>
         </div>
     </section>
 </body>
