@@ -74,3 +74,6 @@ async function adicionarNovoLeitor(nome, cpf, email, celular) {
 
 // // Bloquear leitor pelo CPF
 // blockReaderByCpf('00197659080');
+function chamarCadastrarLeitor() {
+    window.location.href = "cadastrarLeitores.html"; // Altere para o caminho correto da página
+}

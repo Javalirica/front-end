@@ -5,53 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Leitores</title>
     <link rel="stylesheet" href="../estilos/stylehome.css">
+    <link rel="stylesheet" href="../estilos/cadastroLivros.css">
     <script src="../interacao/script.js"></script>
-    <script src="../interacao/alterarSenha.js"></script>
-    <script src="../interacao/buscaLivros.js"></script>
-    <script src="../interacao/buscaLocacoes.js"></script>
-    <script src="../interacao/buscaUsuarios.js"></script>
     <script src="../interacao/cadastraLivro.js"></script>
-    <script src="../interacao/cadastrarLeitores.js"></script>
-    <script src="../interacao/controleUsuarios.js"></script>
-    <script src="../interacao/locarLivro.js"></script>
-    <script src="../interacao/novoUser.js"></script>
-</head>
-<body>
     <header class="cabecalho-home">
+        
         <div class="logo-home">
             <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
         </div>
         <button class="btn-sair"><a href="index.html">Sair</a></button>
     </header>
 
-
-    <section class="container-central">
-
+    <main class="container-central">
         <div class="formulario-container">
+            <h2>Cadastrar Leitor</h2>
 
-            <h2>Cadastro de Leitores</h2>
+            <form id="formCadastroLivros">
+                <div class="form-group">
+                    <label for="nomeLivro">Nome:</label>
+                    <input type="text" id="nomeLivro" name="nomeLivro" placeholder="Digite o nome do livro" required>
+                </div>
 
-            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="codLivro">CPF::</label>
+                    <input type="text" id="codLivro" name="codLivro" placeholder="Digite o código do livro" maxlength="5"required>
+                </div>
 
-            <div>
-                <label for="nome">Nome Completo: </label>
-                <input type="text" id="nome" name="nome" required>
+                <div class="form-group">
+                    <label for="autorLivro">E-mail:</label>
+                    <input type="text" id="autorLivro" name="autorLivro" placeholder="Digite o autor do livro" required>
+                </div>
 
-                <label for="email">Email: </label>
-                <input type="email" id="email" name="email" required>
+                <div class="form-group">
+                    <label for="categoriaLivro">Celular:</label>
+                    <input type="text" id="categoriaLivro" name="categoriaLivro" placeholder="Digite a categoria do livro" required>
+                </div>
 
-                <label for="CPF">CPF : </label>
-                <input type="text" id="CPF" name="CPF" required>
-
-                <label for="celular">Celular: </label>
-                <input type="text" id="celular" name="celular" required>
-            </div>
+                <div id="btn-container">
+                    <button type="button" class="btn-confirmar" onclick="cadastraLivro()">Cadastrar</button>
+                </div>
             </form>
-
-            <br>
-            <button class="btn-confirmar" onclick="cadastro()"  >Cadastrar</button>
-
         </div>
-    </section>
+    </main>
 </body>
 </html>
