@@ -36,6 +36,7 @@ async function buscaTodosLeitores() {
     }
 }
 
+
 // Função para buscar leitor por CPF com autenticação
 async function buscaLeitorCPF(cpf) {
     const token = localStorage.getItem('authToken');  // Recupera o token do localStorage
@@ -64,6 +65,7 @@ async function buscaLeitorCPF(cpf) {
         alert('Erro de conexão. Tente novamente.');
     }
 }
+
 
 // Função para atualizar leitor por CPF com autenticação
 async function buscaLeitorCPFEmail(cpf, email) {
