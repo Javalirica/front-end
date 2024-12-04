@@ -4,10 +4,10 @@ function cadastro() {
     var email = document.getElementById("email").value;
     var celular = document.getElementById("celular").value;
 
-    addNewReader(nome, cpf, email, celular);
+    adicionarNovoLeitor(nome, cpf, email, celular);
 }
 
-async function addNewReader(nome, cpf, email, celular) {
+async function adicionarNovoLeitor(nome, cpf, email, celular) {
     const readerData = {
         nome,
         cpf,

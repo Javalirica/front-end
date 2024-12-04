@@ -1,10 +1,11 @@
 function cadastraUsario() {
-    console.log("O campo 'Nome' é obrigatório. Por favor, preencha-o.");
-    var nomeUsuario = document.getElementById("nome").value.trim();
-    var emailUsuario = document.getElementById("email").value.trim();
-    var senhaUsuario = document.getElementById("senha").value.trim();
-    var valisaSenhaUsuario = document.getElementById("validaSenha").value.trim();
-    var tipoUsuario = document.getElementById("tipoUsuario").value.trim();
+  
+    var nomeUsuario = document.getElementById("nome").value;
+    var emailUsuario = document.getElementById("email").value;
+    var senhaUsuario = document.getElementById("senha").value;
+    var valisaSenhaUsuario = document.getElementById("validaSenha").value;
+    var tipoUsuario = document.getElementById("tipoUsuario").value;
+
 
     // Validação de campos
     if (!validaCadastroUsuario(nomeUsuario, emailUsuario, senhaUsuario, valisaSenhaUsuario)) {

@@ -12,8 +12,8 @@ function chamaTelaCadastrarLeitores(){
 function chamaTelaCasdastraLivro(){
     window.location.href = "cadastraLivro.html"
 }
-function chamaTelaLivrosEmprestados(){
-    window.location.href = "locacoes.html"
+function chamaTelafazerlocaco(){
+    window.location.href = "locarlivro.html"
 }
 
 function cadastraUsario(){

@@ -1,4 +1,13 @@
+function Locacao(){
 
+    const nomeLivro = document.getElementById("nomeLivro").value;
+    const codLivro = document.getElementById("codLivro").value;
+    const CPF = document.getElementById("cpfLocador").value;
+
+    fazerLocacao(CPF,codLivro)
+
+
+}
 async function fazerLocacao(cpf, bookCode) {
     const token = localStorage.getItem('authToken');  // Recupera o token de autenticação do localStorage
 
