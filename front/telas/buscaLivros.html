@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todos os Livros</title>
     <link rel="stylesheet" href="../estilos/stylehome.css">
-    <!-- <script src="../interacao/script.js"></script>
+    <link rel="stylesheet" href="../estilos/buscarLivros.css">
+    <script src="../interacao/script.js"></script>
     <script src="../interacao/alterarSenha.js"></script>
     <script src="../interacao/buscaLivros.js"></script>
     <script src="../interacao/buscaLocacoes.js"></script>
@@ -14,106 +15,38 @@
     <script src="../interacao/cadastrarLeitores.js"></script>
     <script src="../interacao/controleUsuarios.js"></script>
     <script src="../interacao/locarLivro.js"></script>
-    <script src="../interacao/novoUser.js"></script> -->
-    <script src="../interacao/cadastraLivro.js"></script>
+    <script src="../interacao/novoUser.js"></script>
 </head>
 <body onload="desligaTabela()">
     <header class="cabecalho-home">
         <div class="logo-home">
             <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
-    
+        </div>
         <button class="btn-sair"><a href="index.html">Sair</a></button>
     </header>
+    <section id="container-central">
 
-    <section class="container-central">
+        <div class="Pesquisar-nome">
 
-        <div class="formulario-container">
+            <h2>Pesquisar por nome:</h2>
+            
+            <label for="nome" class="campoBucar">Nome do Livro: </label>
+            <input type="text" id="nome" name="nome" required placeholder=" Nome">
+            <button onclick="buscaLivro()" class="butaoPesquisar">Buscar</button>
+           <div>
+                <button onclick="chamaTelaCasdastraLivro()" class="butaoCadastrar">Cadastrar Livro</button>
+           </div> 
 
-            <h2>Todos os Livros</h2>
+           <div id="lista-livros">
 
-            <form action="#" method="post">
-            <!-- <div>
-                <label for="code">Código do livro: </label>
-                <input type="number" id="code" name="code" required>
-            <div>-->
-                <br> 
-            </div>
-                <label for="nome">Nome do Livro: </label>
-                <input type="text" id="nome" name="nome" required>
-            <div>
-                <br>
-            </div>
-                <button onclick="buscaLivrosPorNome()"class="btn-confirmar">Confirmar</button>
-            </div>
-            <br>  <br>
-            </div>
-                <button onclick="buscaTodosLivro()"class="btn-confirmar">Todos os Livros</button>
-            </div>
-            <br>
-            <br>
-            <table id="TABELA_LIVROS" class="table" cellspacing="0" tablename="TABELA_LIVROS" noaddbutton="true" customFnDelete="deleteLinhaTabela(this, 'TABELA_LIVROS')">
-                <thead> 
-                    <tr class="tableHeadRow">
-                        <th class="tableColumn"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th class="tableColumn">
-                        
-                                <div class="row">
-                                
-                                    <div class="form-group col-xs-12 col-md-12">
-                                        <label for="CODIGOSERVICOEXTERNO">Serviço:</label>
-                                        <input type="hidden" id="IDPRDSERVICOEXTERNO" name="IDPRDSERVICOEXTERNO" value="">
-                                        <input type="hidden" id="ULTIMOPRECOSERVICOEXTERNO" name="ULTIMOPRECOSERVICOEXTERNO" value="">
-                                        <input type="hidden" id="CODIGOSERVICOEXTERNO" name="CODIGOSERVICOEXTERNO" value="">
-                                        <input type="hidden" id="DESCRICAOSERVICOEXTERNO" name="DESCRICAOSERVICOEXTERNO" value="">
-                                    
-                                    
-                                </div>
-                                <div class="row">
+                <h1>Lista de livros:  </h1>
+                <div id="lista-livros-tabela">
+    
+                </div>
 
-                                    <div class="form-group col-xs-12 col-md-4">
-                                        <label for="UNIDADESERVICOEXTERNO">Unidade:</label>
-                                        <input type="text" id="UNIDADESERVICOEXTERNO" name="UNIDADESERVICOEXTERNO" value="" class="form-control" readonly="readonly">
-                                    </div>
-                                    
-                                    <div class="form-group col-xs-12 col-md-4">
-                                        <label for="QUANTIDADESERVICOEXTERNO">Quantidade:</label>
-                                        <input type="number" id="QUANTIDADESERVICOEXTERNO" name="QUANTIDADESERVICOEXTERNO" value="" min="0" class="form-control">
-                                    </div>
 
-                                    
-                                    <div class="form-group col-xs-12 col-md-4">
-                                        <label for="UNIDADESERVICOEXTERNO">Unidade:</label>
-                                        <input type="text" id="UNIDADESERVICOEXTERNO" name="UNIDADESERVICOEXTERNO" value="" class="form-control" readonly="readonly">
-                                    </div>
-                                    
-                                    <div class="form-group col-xs-12 col-md-4">
-                                        <label for="QUANTIDADESERVICOEXTERNO">Quantidade:</label>
-                                        <input type="number" id="QUANTIDADESERVICOEXTERNO" name="QUANTIDADESERVICOEXTERNO" value="" min="0" class="form-control">
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
-            </form>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </div>
-                 <button onclick="chamaTelaCasdastraLivro()"class="btn-confirmar">Cadastrar Livro</button>
-        </div>
-
-          
-
+           </div>
         </div>
     </section>
 </body>
-</html>     
+</html>
