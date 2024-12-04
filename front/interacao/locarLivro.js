@@ -45,7 +45,6 @@ async function fazerLocacao(cpf, bookCode) {
         alert('Erro de conexão. Tente novamente mais tarde.');
     }
 }
-
-// // Exemplo de chamada da função
-// // Realizar empréstimo com CPF "81010557033" e código do livro "ssa01"
-// makeLoan('81010557033', 'ssa01');
+function chamaLocarLivro() {
+    window.location.href = "locarLivro.html"; // Altere para o caminho correto da página
+}

@@ -58,3 +58,14 @@
     background-color: #f4f4f4;
     font-weight: bold;
 }
+
+#pesquisa-locacao {
+   width: 850px;
+}
+
+.container-devolucao{
+    float: right;
+}
+.container-pesquisa{
+    float: left;
+}

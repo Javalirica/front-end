@@ -3,62 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livros Emprestados</title>
+    <title>Locações</title>
+    <!-- Estilos CSS -->
     <link rel="stylesheet" href="../estilos/stylehome.css">
-    <script src="../interacao/script.js"></script>
-    <script src="../interacao/alterarSenha.js"></script>
-    <script src="../interacao/buscaLivros.js"></script>
-    <script src="../interacao/buscaLocacoes.js"></script>
-    <script src="../interacao/buscaUsuarios.js"></script>
-    <script src="../interacao/cadastraLivro.js"></script>
-    <script src="../interacao/cadastrarLeitores.js"></script>
-    <script src="../interacao/controleUsuarios.js"></script>
-    <script src="../interacao/locarLivro.js"></script>
-    <script src="../interacao/novoUser.js"></script>
+    <link rel="stylesheet" href="../estilos/buscarLivros.css">
+    
+    <!-- Scripts JS -->
+    <script src="../interacao/script.js" defer></script>
+    <script src="../interacao/alterarSenha.js" defer></script>
+    <script src="../interacao/buscaLivros.js" defer></script>
+    <script src="../interacao/buscaLocacoes.js" defer></script>
+    <script src="../interacao/buscaUsuarios.js" defer></script>
+    <script src="../interacao/cadastraLivro.js" defer></script>
+    <script src="../interacao/cadastrarLeitores.js" defer></script>
+    <script src="../interacao/controleUsuarios.js" defer></script>
+    <script src="../interacao/locarLivro.js" defer></script>
+    <script src="../interacao/novoUser.js" defer></script>
 </head>
-<body>
+<body onload="fetchAllLocacoes()">
+
     <header class="cabecalho-home">
         <div class="logo-home">
-            <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
+            <a href="home.html"><img src="../imagens/logo2.png" alt="Logo"></a>
         </div>
-
         <button class="btn-sair"><a href="index.html">Sair</a></button>
     </header>
 
-    <section class="container-central">
-
-        <div class="formulario-container">
-
-            <h2>Livros Emprestados</h2>
-
-            <form action="#" method="post">
-
-                <div>
-                    <label for="Ano">Ano da Locação: </label>
-                    <input type="number" id="code" name="code" required>
-    
-                    <label for="Mes">Mes da Locação: </label>
-                    <input type="text" id="nome" name="nome" required>
-    
-
+    <section id="container-central">
+        <div class="Pesquisar-nome">
+            <div id="pesquisa-locacao">
+                <div class="container-pesquisa">
+                    <h2>Pesquisar Locação:</h2>              
+                    <label for="cpfLeitor" class="campoBucar">Cpf do leitor: </label>
+                    <input type="text" id="cpfLeitor" name="cpfLeitor" required placeholder=" CPF">
+                    <button onclick="buscaLivro()" class="butaoPesquisar">Buscar</button>
                 </div>
             
-                <div>
-
-                    <button onclick=" buscaLocacoes()"class="btn-confirmar">Confirmar</button>
-       
-                 </div>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <div>
-
-                    <button onclick="chamaTelafazerlocaco()"class="btn-confirmar">Fazer uma nova locação</button>
-       
+                <div class="container-devolucao">
+                    <h2>Registrar Devolução:</h2>
+                    <label for="idLocacao" class="campoBucar">ID da locação: </label>
+                    <input type="text" id="idLocacao" name="devolucao" required placeholder=" ID da locação">
+                    <button onclick="buscaLivro()" class="butaoPesquisar">Devolver</button>
                 </div>
-             
-            </form>
+            </div>
+    
+            <div>
+                <button onclick="chamaLocarLivro()" class="butaoCadastrar">Realizar nova locação</button>
+            </div> 
+
+            <div id="lista-livros">
+                <h1>Lista de Locações Ativas:</h1>
+                <div id="lista-locacoes-tabela"></div>
+                
+                <!-- Paginação -->
+                <div id="paginacao" class="paginacao">
+                    <button id="botao-voltar" class="butaoPesquisar" onclick="paginaAnterior()" style="display: none;">Voltar</button>
+                    <button id="botao-proximo" class="butaoPesquisar" onclick="proximaPagina()">Próximo</button>
+                </div>
+            </div>
+            
         </div>
     </section>
 </body>

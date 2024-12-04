@@ -3,61 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Leitores</title>
+    <title>Cadastrar Livros</title>
     <link rel="stylesheet" href="../estilos/stylehome.css">
+    <link rel="stylesheet" href="../estilos/cadastroLivros.css">
     <script src="../interacao/script.js"></script>
-    <script src="../interacao/alterarSenha.js"></script>
-    <script src="../interacao/buscaLivros.js"></script>
-    <script src="../interacao/buscaLocacoes.js"></script>
-    <script src="../interacao/buscaUsuarios.js"></script>
     <script src="../interacao/cadastraLivro.js"></script>
-    <script src="../interacao/cadastrarLeitores.js"></script>
-    <script src="../interacao/controleUsuarios.js"></script>
-    <script src="../interacao/locarLivro.js"></script>
-    <script src="../interacao/novoUser.js"></script>
-</head>
-<body>
     <header class="cabecalho-home">
+        
         <div class="logo-home">
             <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
         </div>
-      
         <button class="btn-sair"><a href="index.html">Sair</a></button>
     </header>
 
-    <section class="container-central">
-
+    <main class="container-central">
         <div class="formulario-container">
+            <h2>Cadastrar Livros</h2>
 
-            <h2>Locar Livros</h2>
+            <form id="formCadastroLivros">
+                <div class="form-group">
+                    <label for="nomeLivro">Cpf do Leitor:</label>
+                    <input type="text" id="nomeLivro" name="nomeLivro" placeholder="Digite o nome do livro" required>
+                </div>
 
-            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="codLivro">Código do Livro:</label>
+                    <input type="text" id="codLivro" name="codLivro" placeholder="Digite o código do livro" maxlength="5"required>
+                </div>
 
-            <div>
-                <label for="nomeLivro">Nome Livro: </label>
-                <input type="text" id="nomeLivro" name="nomeLivro" required>
 
-                <label for="codLivro">Codigo Livro: </label>
-                <input type="text" id="codLivro" name="codLivro" required>
-
-                <label for="cpfLocador">CPF Locador: </label>
-                <input type="text" id="cpfLocador" name="cpfLocador" required>
-            </div>
-            <br>
-            <!-- <div>
-                <label for="dataLocacao">Data da Locação: </label>
-                <input type="date" id="dataLocacao" name="dataLocacao" required>
-
-                <label for="dataEntrega">Data da Entrega: </label>
-                <input type="date" id="dataEntrega" name="dataEntrega" required>
-
-            </div> -->
+                <div id="btn-container">
+                    <button type="button" class="btn-confirmar" onclick="">Realizar Locação</button>
+                </div>
             </form>
-
-            <br>
-            <button class="btn-confirmar" onclick="Locacao()">Confirmar Locação</button>
-
         </div>
-    </section>
+    </main>
 </body>
 </html>
