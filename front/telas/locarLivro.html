@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Livros</title>
+    <title>Cadastrar Empréstimo</title>
     <link rel="stylesheet" href="../estilos/stylehome.css">
     <link rel="stylesheet" href="../estilos/cadastroLivros.css">
     <script src="../interacao/script.js"></script>
-    <script src="../interacao/cadastraLivro.js"></script>
+    <script src="../interacao/cadastraEmprestimo.js"></script>
+</head>
+<body>
     <header class="cabecalho-home">
-        
         <div class="logo-home">
             <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
         </div>
@@ -18,22 +19,21 @@
 
     <main class="container-central">
         <div class="formulario-container">
-            <h2>Cadastrar Livros</h2>
+            <h2>Realizar Empréstimo</h2>
 
-            <form id="formCadastroLivros">
+            <form id="formCadastroEmprestimo">
                 <div class="form-group">
-                    <label for="nomeLivro">Cpf do Leitor:</label>
-                    <input type="text" id="nomeLivro" name="nomeLivro" placeholder="Digite o nome do livro" required>
+                    <label for="cpfLeitor">CPF do Leitor:</label>
+                    <input type="text" id="cpfLeitor" name="cpfLeitor" placeholder="Digite o CPF do leitor" required>
                 </div>
 
                 <div class="form-group">
                     <label for="codLivro">Código do Livro:</label>
-                    <input type="text" id="codLivro" name="codLivro" placeholder="Digite o código do livro" maxlength="5"required>
+                    <input type="text" id="codLivro" name="codLivro" placeholder="Digite o código do livro" maxlength="5" required>
                 </div>
 
-
                 <div id="btn-container">
-                    <button type="button" class="btn-confirmar" onclick="">Realizar Locação</button>
+                    <button type="button" class="btn-confirmar" onclick="cadastraEmprestimo()">Realizar Locação</button>
                 </div>
             </form>
         </div>
