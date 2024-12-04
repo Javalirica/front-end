@@ -28,14 +28,10 @@ async function deletaLivroCode(codigo) {
 
 // Função para adicionar um novo livro com autenticação
 async function cadastraLivro() {
-    
-  
-    var nome = document.getElementById("nomeLivro").value
-    var codigoLivro = document.getElementById("codLivro").value
-    var autor = document.getElementById("autorLivro").value
-    var categoria = document.getElementById("categoriaLivro").value
-
-
+    var nome = document.getElementById("nomeLivro").value;
+    var codigoLivro = document.getElementById("codLivro").value;
+    var autor = document.getElementById("autorLivro").value;
+    var categoria = document.getElementById("categoriaLivro").value;
 
     const token = localStorage.getItem('authToken');  // Recupera o token do localStorage
 
@@ -65,6 +61,8 @@ async function cadastraLivro() {
             const createdBook = await response.json();
             console.log('Livro adicionado com sucesso:', createdBook);
             alert('Livro adicionado com sucesso!');
+
+            window.location.href = "buscaLivros.html"; 
         } else if (response.status === 400) {
             alert('Erro ao salvar livro. Verifique os dados e tente novamente.');
         }
@@ -73,5 +71,3 @@ async function cadastraLivro() {
         alert('Erro de conexão. Tente novamente.');
     }
 }
-
-

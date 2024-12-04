@@ -145,6 +145,7 @@ function exibirLivros(livros) {
 }
 
 // Função para avançar a página
+// Função para avançar a página
 function proximaPagina() {
     paginaAtual++;
     const nome = document.getElementById("nome").value.trim();
@@ -154,7 +155,30 @@ function proximaPagina() {
     } else {
         fetchAllBooks();
     }
+
+    // Mostra o botão de voltar
+    document.getElementById("botao-voltar").style.display = "inline-block";
 }
+
+// Função para voltar à página anterior
+function paginaAnterior() {
+    if (paginaAtual > 1) {
+        paginaAtual--;
+        const nome = document.getElementById("nome").value.trim();
+
+        if (nome) {
+            buscaLivrosPorNome(nome);
+        } else {
+            fetchAllBooks();
+        }
+    }
+
+    // Oculta o botão de voltar se estiver na primeira página
+    if (paginaAtual === 1) {
+        document.getElementById("botao-voltar").style.display = "none";
+    }
+}
+
 
 // Função para buscar livros por nome
 function buscaLivro() {
