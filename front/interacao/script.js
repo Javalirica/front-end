@@ -6,7 +6,7 @@ function chamaTelaControle(){
     window.location.href = "controle.html"
 }
 function chamaTelaCadastrarLeitores(){
-    window.location.href = "cadastarr-leitores.html"
+    window.location.href = "cadastrarLeitores.html"
 }
 
 function chamaTelaCasdastraLivro(){
@@ -25,3 +25,6 @@ function alteraSenha(){
 function buscaUsuario(){
     window.location.href = "buscaUsuarios.html"
 }
+
+
+
