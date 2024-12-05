@@ -1,0 +1,60 @@
+
+.container-central {
+    font-family: Arial, sans-serif;
+}
+
+.formulario-container {
+    font-size: 18px;
+    margin: 20px 80px; 
+}
+.formulario-containerrio h2 {
+    width: 300px;
+    margin-bottom: 15px;
+}
+.btn-confirmar {
+    background-color:  #0073e6;
+    border-radius: 5px;
+    color: #fff ;
+    border-color:  #0073e6;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.formulario-password{
+    justify-content: center;
+}
+
+.formulario-password input{
+    margin-top: 25px;
+    font-size: 10px;
+}
+
+.formulario-password label{
+    font-size: 18px;
+    margin: 10px 25px; 
+}
+
+.btn-sair{
+    margin-left: 800px;
+}
+
+.formulario-user{
+    justify-content: center;
+}
+
+.user-label{
+    font-size: 18px;
+    margin: 10px 25px; 
+}
+
+.user-input{
+    margin-top: 25px;
+    font-size: 10px;
+}
+
+
+
