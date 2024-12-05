@@ -9,6 +9,7 @@ body{
        background-position: center;
        background-size: cover;
        background-repeat: no-repeat;
+       background-color: #f5f5f5;
        min-width: 100vh;
 
     }
@@ -45,12 +46,16 @@ h3{
     cursor: pointer;
 }
 .btn-sair a {
-    color: #fff;
     text-decoration: none;
+    color: white;
+    font-size: 16px;
+    background-color: #e60000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 .btn-sair a:hover {
-    color: rgb(166, 159, 159);
-    text-decoration: none;
+    background-color: #ff3333;
 }
 
 /*
