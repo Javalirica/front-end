@@ -70,3 +70,16 @@
 .container-pesquisa{
     float: left;
 }
+.Pesquisar-nome input {
+    height: 33px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.Pesquisar-nomeinput:focus {
+    outline: none;
+    border-color: #0073e6;
+    box-shadow: 0 0 5px rgba(0, 115, 230, 0.5);
+}
