@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todos Usuário</title>
-    <link rel="stylesheet" href="../estilos/stylehome.css">
+    <link rel="stylesheet" href="../estilos/buscarUsuarios.css">
     <script src="../interacao/buscaUsuarios.js"></script>
     
 </head>
@@ -22,7 +22,7 @@
 
         <div class="formulario-container">
 
-            <h2>Usuários: </h2>
+            <h2>Busca de usuários: </h2>
 
             <form action="#" method="post" class="new-user">
 
@@ -41,14 +41,19 @@
                     <option value="inativo">Comun</option>
                 </select>
 
+                <button onclick="buscaUsuario()" class="butaoPesquisar">Buscar</button>
+
             </form>
-
-            <div> 
-
-                <button class="btn-confirmar">Confirmar </button>
-    
+            
+            <div id="lista-usuarios">
+                <h1>Lista de usuários:</h1>
+                <div id="lista-usuarios-tabela"></div>
+                <div id="paginacao" class="paginacao">
+                    <button id="botao-voltar" class="butaoPesquisar" onclick="paginaAnterior()" style="display: none;">Voltar</button>
+                    <button id="botao-proximo" class="butaoPesquisar" onclick="proximaPagina()">Próximo</button>
+                </div>
+                </div>  
             </div>
-        
            
         </div>
     </section>
