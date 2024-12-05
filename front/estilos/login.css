@@ -1,57 +1,142 @@
+/* Reset de estilos */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Estilos básicos do corpo */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color:#fff;
-    background:#555F63  url("../imagens/javali.png") ;
+    color: #fff;
+    background: #555F63 url("../imagens/javali.png");
 }
 
-#principal{
+/* Estilo do contêiner principal */
+#principal {
     width: 700px;
     background-color: #e3941dd7;
+    padding: 20px;
+    align-items: center; /* Centraliza todos os elementos */
+    gap: 20px;
 }
 
-
-#login {
-
-    margin-top: 50px;
-    margin-left: 80px;
-    font-size: 1.6em;
-    
-}
-#login input {
-    height: 35px;
-}
-#btn-login{
-        text-align: center;
-        margin-top: 25px;
-        margin-right: 75px;
-}
-.btn {
-    border-radius: 5px;
-    font-size: 15px;
-    height: 35px;
-    width: 70px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
+/* Estilos do contêiner de boas-vindas */
 #container-home {
-
-    padding-top: 20px;
     text-align: center;
 }
 
-#primeiroAcesso{
+/* Estilos do formulário de login */
+#login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin: 0 auto;
+    height: 250px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-group label {
+    text-align: center;
+    width: 100%;
+    font-size: 1.2em; /* Aumenta o tamanho da fonte (ajuste conforme necessário) */
+    font-weight: bold;
+}
+
+#login input {
+    width: 300px;
+    height: 35px;
+    font-size: 1em;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+}
+
+#login input:focus {
+    border-color: #e3941d;
+    box-shadow: 0 0 5px #e3941d;
+}
+
+/* Botão de login */
+#btn-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    height: 35px;
+    width: 300px;
+    cursor: pointer;
+    color: #fff; /* Cor do texto */
+    background-color: #007BFF; /* Cor inicial do botão */
+    transition: all 0.3s ease; /* Transição para todas as propriedades */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #d67f12; /* Cor ao passar o mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+    transform: translateY(-3px); /* Eleva o botão */
+}
+
+.btn:active {
+    transform: translateY(1px); /* Efeito de "pressionado" */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+}
+
+/* Link para cadastro */
+#primeiroAcesso {
     margin: 15px;
     text-decoration: none;
     color: #fff;
+}
+
+
+/* Contêiner para os links de ação */
+#links-acoes {
+    display: flex;
+    flex-direction: column; /* Coloca os links um abaixo do outro */
+    align-items: center; /* Centraliza os links */
+    gap: 10px; /* Espaço entre os links */
+     /* Distância do formulário */
+}
+
+/* Estilo dos links */
+.link-acao {
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 1em;
+    color: #fff;
+    padding: 10px 20px; /* Adiciona espaçamento interno */
+    border: 2px solid #fff; /* Adiciona borda */
+    border-radius: 20px; /* Bordas arredondadas */
+    transition: all 0.3s ease; /* Efeito suave de transição */
+}
+
+/* Efeito ao passar o mouse */
+.link-acao:hover {
+    background-color: #fff; /* Fundo branco */
+    color: #e3941d; /* Texto com cor do tema */
+    transform: scale(1.05); /* Aumenta levemente o tamanho */
+}
+
+/* Efeito ao clicar */
+.link-acao:active {
+    background-color: #e3941d; /* Fundo com cor do tema */
+    color: #fff; /* Texto branco */
+    transform: scale(0.95); /* Diminui levemente o tamanho */
 }
