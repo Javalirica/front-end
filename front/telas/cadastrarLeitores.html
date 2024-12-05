@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="../estilos/stylehome.css">
     <link rel="stylesheet" href="../estilos/cadastroLivros.css">
     <script src="../interacao/script.js"></script>
-    <script src="../interacao/cadastraLivro.js"></script>
+    <script src="../interacao/cadastrarLeitores.js"></script>
+</head>
+<body>
     <header class="cabecalho-home">
-        
         <div class="logo-home">
             <a href="home.html"><img src="../imagens/logo2.png" alt=""></a>
         </div>
@@ -20,29 +21,29 @@
         <div class="formulario-container">
             <h2>Cadastrar Leitor</h2>
 
-            <form id="formCadastroLivros">
+            <form id="formCadastroLeitor">
                 <div class="form-group">
                     <label for="nomeLivro">Nome:</label>
-                    <input type="text" id="nomeLivro" name="nomeLivro" placeholder="Digite o nome do leitor" required>
+                    <input type="text" id="nome" name="nomeLivro" placeholder="Digite o nome do leitor" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="codLivro">CPF::</label>
-                    <input type="text" id="codLivro" name="codLivro" placeholder="Digite o CPF do leitor" maxlength="5"required>
+                    <label for="codLivro">CPF:</label>
+                    <input type="text" id="cpf" name="codLivro" placeholder="Digite o CPF do leitor" maxlength="11" required>
                 </div>
 
                 <div class="form-group">
                     <label for="autorLivro">E-mail:</label>
-                    <input type="email" id="autorLivro" name="autorLivro" placeholder="Digite o e-mail do leitor" required>
+                    <input type="email" id="email" name="autorLivro" placeholder="Digite o e-mail do leitor" required>
                 </div>
 
                 <div class="form-group">
                     <label for="categoriaLivro">Celular:</label>
-                    <input type="text" id="categoriaLivro" name="categoriaLivro" placeholder="Digite o número do leitor" required>
+                    <input type="text" id="celular" name="categoriaLivro" placeholder="Digite o número do leitor" required>
                 </div>
 
                 <div id="btn-container">
-                    <button type="button" class="btn-confirmar" onclick="cadastraLivro()">Cadastrar</button>
+                    <button type="button" class="btn-confirmar" onclick="cadastro()">Cadastrar</button>
                 </div>
             </form>
         </div>
