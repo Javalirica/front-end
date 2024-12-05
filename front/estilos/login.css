@@ -21,7 +21,7 @@ body {
     width: 700px;
     background-color: #e3941dd7;
     padding: 20px;
-    align-items: center; /* Centraliza todos os elementos */
+    align-items: center;
     gap: 20px;
 }
 
@@ -50,7 +50,7 @@ body {
 .form-group label {
     text-align: center;
     width: 100%;
-    font-size: 1.2em; /* Aumenta o tamanho da fonte (ajuste conforme necessário) */
+    font-size: 1.2em;
     font-weight: bold;
 }
 
@@ -82,21 +82,21 @@ body {
     height: 35px;
     width: 300px;
     cursor: pointer;
-    color: #fff; /* Cor do texto */
-    background-color: #007BFF; /* Cor inicial do botão */
-    transition: all 0.3s ease; /* Transição para todas as propriedades */
+    color: #fff;
+    background-color: #007BFF;
+    transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
-    background-color: #d67f12; /* Cor ao passar o mouse */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
-    transform: translateY(-3px); /* Eleva o botão */
+    background-color: #d67f12;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
 }
 
 .btn:active {
-    transform: translateY(1px); /* Efeito de "pressionado" */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+    transform: translateY(1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Link para cadastro */
@@ -110,33 +110,32 @@ body {
 /* Contêiner para os links de ação */
 #links-acoes {
     display: flex;
-    flex-direction: column; /* Coloca os links um abaixo do outro */
-    align-items: center; /* Centraliza os links */
-    gap: 10px; /* Espaço entre os links */
-     /* Distância do formulário */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 /* Estilo dos links */
 .link-acao {
-    text-decoration: none; /* Remove o sublinhado */
+    text-decoration: none;
     font-size: 1em;
     color: #fff;
-    padding: 10px 20px; /* Adiciona espaçamento interno */
-    border: 2px solid #fff; /* Adiciona borda */
-    border-radius: 20px; /* Bordas arredondadas */
-    transition: all 0.3s ease; /* Efeito suave de transição */
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
 /* Efeito ao passar o mouse */
 .link-acao:hover {
-    background-color: #fff; /* Fundo branco */
-    color: #e3941d; /* Texto com cor do tema */
-    transform: scale(1.05); /* Aumenta levemente o tamanho */
+    background-color: #fff;
+    color: #e3941d;
+    transform: scale(1.05);
 }
 
 /* Efeito ao clicar */
 .link-acao:active {
-    background-color: #e3941d; /* Fundo com cor do tema */
-    color: #fff; /* Texto branco */
-    transform: scale(0.95); /* Diminui levemente o tamanho */
+    background-color: #e3941d;
+    color: #fff;
+    transform: scale(0.95);
 }
