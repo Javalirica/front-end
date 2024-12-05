@@ -198,14 +198,14 @@ h3{
     margin-top: 10px;
 }
 
-form select {
+/* form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 25px;
     border: 1px solid #8700ad;
     border-radius: 4px;
     font-size: 16px;
-}
+} */
 
 .btn-confirmar{
     display: flex;

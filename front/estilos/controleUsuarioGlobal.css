@@ -38,22 +38,38 @@
     margin: 10px 25px; 
 }
 
-.btn-sair{
-    margin-left: 800px;
-}
+ .btn-sair{
+    display: block;
+    margin-top: -110px;
+} 
 
-.formulario-user{
+.new-user{
     justify-content: center;
+
 }
 
-.user-label{
+.new-user, .tipoUsuario label{
     font-size: 18px;
     margin: 10px 25px; 
 }
 
-.user-input{
+.new-user input{
     margin-top: 25px;
     font-size: 10px;
+}
+
+.logo-home {
+    width: 100%;
+}
+
+option{
+    font-size: 12px;
+}
+
+#tipoUsuario select{
+   width: 50px;
+   height: 50px;
+   padding: 10px;
 }
 
 
