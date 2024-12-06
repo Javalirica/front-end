@@ -1,14 +1,16 @@
 function Locacao(){
 
-    const nomeLivro = document.getElementById("nomeLivro").value;
+ 
     const codLivro = document.getElementById("codLivro").value;
-    const CPF = document.getElementById("cpfLocador").value;
-
+    console.log(codLivro);
+    const CPF = document.getElementById("cpfLeitor").value;
+    console.log(CPF);
     fazerLocacao(CPF,codLivro)
 
 
 }
 async function fazerLocacao(cpf, bookCode) {
+    console.log("Tese");
     const token = localStorage.getItem('authToken');  // Recupera o token de autenticação do localStorage
 
     if (!token) {
@@ -44,7 +46,4 @@ async function fazerLocacao(cpf, bookCode) {
         console.error('Erro ao realizar empréstimo:', error);
         alert('Erro de conexão. Tente novamente mais tarde.');
     }
-}
-function chamaLocarLivro() {
-    window.location.href = "locarLivro.html"; // Altere para o caminho correto da página
 }

@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="../estilos/stylehome.css">
     <link rel="stylesheet" href="../estilos/buscarLivros.css">
     
-    <!-- Scripts JS -->
+
+    <script src="../interacao/bloqueiaLeitor.js" defer></script>
     <script src="../interacao/buscaLeitor.js" defer></script>
     <script src="../interacao/script.js"></script>
 </head>
-<body>
+<body onload="buscaTodosLeitores()">
 
     <header class="cabecalho-home">
         <div class="logo-home">
@@ -28,19 +29,19 @@
                     <h2>Pesquisar Leitor:</h2>              
                     <label for="cpfLeitor" class="campoBucar">Cpf do leitor: </label>
                     <input type="text" id="cpfLeitor" name="cpfLeitor" required placeholder=" CPF">
-                    <button onclick="" class="butaoPesquisar">Buscar</button><!--Alterar para buscar Leitor por cpf-->
+                    <button class="butaoPesquisar" onclick="buscaLeitorCPF()">Buscar</button><!--Alterar para buscar Leitor por cpf-->
                 </div>
             
                 <div class="container-devolucao">
                     <h2>Ações:</h2>
                     <div>
-                        <label for="idLocacao" class="campoBucar">Bloquear Leitor </label>
-                        <input type="text" id="idLocacao" name="devolucao" required placeholder=" CPF do Leitor">
-                        <button onclick="" class="butaoPesquisar">bloquear</button><!--Alterar para bloquear Leitor-->
+                        <label for="cpfLeitorbloque" class="campoBucar">Bloquear Leitor </label>
+                        <input type="text" id="cpfLeitorbloque" name="cpfLeitorbloque" required placeholder=" CPF do Leitor">
+                        <button onclick="chamaBloquearLeitor()" class="butaoPesquisar">bloquear</button><!--Alterar para bloquear Leitor-->
                     </div>
                     <div>
-                        <label for="idLocacao" class="campoBucar">Atualizar Leitor </label>
-                        <button onclick="" class="butaoPesquisar">Atualizar</button><!--Alterar para bloquear Leitor-->
+                        <!-- <label for="idLocacao" class="campoBucar">Atualizar Leitor </label>
+                        <button onclick="" class="butaoPesquisar">Atualizar</button>Alterar para bloquear Leitor -->
                         <div class="container-devolucao">
                             <button onclick="chamaTelaCadastrarLeitores()" class="butaoCadastrar">Cadastrar Leitor</button>
                         </div>
@@ -51,13 +52,13 @@
            <p class="clear"></p>
 
             <div id="lista-livros">
-                <h1>Lista de Locações Ativas:</h1>
-                <div id="lista-locacoes-tabela"></div>
-                
-                <!-- Paginação -->
+                <h1>Lista de Leitores Ativos:</h1>
+    
+                <div id="lista-leitores-tabela"></div>
+               
                 <div id="paginacao" class="paginacao">
-                    <button id="botao-voltar" class="butaoPesquisar" onclick="paginaAnterior()" style="display: none;">Voltar</button>
-                    <button id="botao-proximo" class="butaoPesquisar" onclick="proximaPagina()">Próximo</button>
+                    <button id="botao-voltar" class="butaoPesquisar" onclick="paginaAnteriorLeitores()" style="display: none;">Voltar</button>
+                    <button id="botao-proximo" class="butaoPesquisar" onclick="proximaPaginaLeitores()">Próximo</button>
                 </div>
             </div>
             

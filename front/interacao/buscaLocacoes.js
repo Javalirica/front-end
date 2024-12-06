@@ -133,3 +133,45 @@ function paginaAnterior() {
 
 // Chamando a função ao carregar a página
 document.addEventListener("DOMContentLoaded", fetchAllLocacoes);
+
+
+async function buscaLocacaoPorCPF() {
+    console.log("Iniciando busca de locações por CPF...");
+
+   
+    const token = localStorage.getItem("authToken"); // Recupera o token do localStorage
+
+    if (!token) {
+        alert("Você precisa estar autenticado para acessar esta funcionalidade.");
+        return;
+    }
+
+    try {
+        const cpf = document.getElementById("cpfLeitor").value; // Recupera o CPF inserido pelo usuário
+        if (!cpf) {
+            alert("Por favor, insira o CPF do leitor.");
+            return;
+        }
+
+        const response = await fetch(`http://3.141.87.82:8080/emprestimo/${cpf}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`, // Passa o token no cabeçalho de autorização
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (response.ok) {
+            const locacoes = await response.json();
+            console.log("Locações encontradas:", locacoes);
+            exibirEmprestimos(locacoes); // Função para exibir as locações no DOM
+        } else if (response.status === 404) {
+            alert("Nenhuma locação encontrada para este CPF.");
+        } else {
+            alert(`Erro ao buscar locações: ${response.statusText}`);
+        }
+    } catch (error) {
+        console.error("Erro ao buscar locações por CPF:", error);
+        alert("Erro de conexão. Tente novamente.");
+    }
+}

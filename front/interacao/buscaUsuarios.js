@@ -1,7 +1,7 @@
 let paginaAtual = 1; // Controla a página atual
 const gerenciadoresPorPagina = 5; // Limite de gerenciadores por página
 
-// Função para buscar todos os gerenciadores
+
 async function buscaTodosUsuarios() {
     console.log("Iniciando fetchAllGerenciadores...");
     try {
@@ -27,14 +27,14 @@ async function buscaTodosUsuarios() {
         if (response.ok) {
             const gerenciadores = await response.json();
             console.log("Lista de todos os gerenciadores:", gerenciadores);
-
+            console.log(gerenciadores);
             // Aplica paginação
             const gerenciadoresPaginados = gerenciadores.slice(
                 (paginaAtual - 1) * gerenciadoresPorPagina,
                 paginaAtual * gerenciadoresPorPagina
             );
-
             exibirGerenciadores(gerenciadoresPaginados);
+            
         } else if (response.status === 401) {
             alert("Não autorizado. Faça login novamente.");
             console.error("Erro 401: Não autorizado. Status de resposta:", response.status);
@@ -50,6 +50,8 @@ async function buscaTodosUsuarios() {
         alert("Erro de conexão. Tente novamente.");
     }
 }
+
+
 
 // Função para exibir os gerenciadores no DOM
 function exibirGerenciadores(gerenciadores) {
@@ -71,7 +73,7 @@ function exibirGerenciadores(gerenciadores) {
     tabela.innerHTML = ` 
         <thead> 
             <tr> 
-                <th>ID Gerenciador</th> 
+                
                 <th>Nome</th> 
                 <th>Descrição</th> 
             </tr> 
@@ -85,9 +87,9 @@ function exibirGerenciadores(gerenciadores) {
         const tr = document.createElement("tr");
 
         tr.innerHTML = ` 
-            <td>${gerenciador.id}</td> 
+            
             <td>${gerenciador.nome}</td> 
-            <td>${gerenciador.descricao}</td> 
+            <td>${gerenciador.role}</td> 
             `; 
             
         tbody.appendChild(tr);
@@ -106,7 +108,7 @@ function exibirGerenciadores(gerenciadores) {
 // Função para avançar a página
 function proximaPagina() {
     paginaAtual++;
-    fetchAllGerenciadores();
+    buscaTodosUsuarios();
 
     // Mostra o botão de voltar
     document.getElementById("botao-voltar").style.display = "inline-block";
@@ -116,7 +118,7 @@ function proximaPagina() {
 function paginaAnterior() {
     if (paginaAtual > 1) {
         paginaAtual--;
-        fetchAllGerenciadores();
+        buscaTodosUsuarios();
     }
 
     // Oculta o botão de voltar se estiver na primeira página

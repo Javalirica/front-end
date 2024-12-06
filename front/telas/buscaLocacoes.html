@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../estilos/stylehome.css">
     <link rel="stylesheet" href="../estilos/buscarLivros.css">
     <script src="../interacao/buscaLocacoes.js" defer></script>
+    <script src="../interacao/devolveLivro.js" defer></script>
     <script src="../interacao/script.js"></script>
    
 </head>
@@ -27,14 +28,14 @@
                     <h2>Pesquisar Locação:</h2>              
                     <label for="cpfLeitor" class="campoBucar">Cpf do leitor: </label>
                     <input type="text" id="cpfLeitor" name="cpfLeitor" required placeholder=" CPF">
-                    <button onclick="buscaLivro()" class="butaoPesquisar">Buscar</button>
+                    <button onclick="buscaLocacaoPorCPF()" class="butaoPesquisar">Buscar</button>
                 </div>
             
                 <div class="container-devolucao">
                     <h2>Registrar Devolução:</h2>
                     <label for="idLocacao" class="campoBucar">ID da locação: </label>
-                    <input type="text" id="idLocacao" name="devolucao" required placeholder=" ID da locação">
-                    <button onclick="buscaLivro()" class="butaoPesquisar">Devolver</button>
+                    <input type="text" id="idLocacao" name="idLocacao" required placeholder=" ID da locação">
+                    <button onclick="chamaFinalizarEmprestimo()" class="butaoPesquisar">Devolver</button>
                 </div>
             </div>
     
