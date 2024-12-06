@@ -6,9 +6,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Garante que o conteúdo ocupe toda a altura da tela */
+    min-height: 100vh; 
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Opcional: Adiciona um fundo para contraste */
+    background-color: #f5f5f5;
 }
 
 .formulario-container {
@@ -17,7 +17,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    text-align: center; /* Centraliza o conteúdo dentro do formulário */
+    text-align: center; 
 }
 
 .formulario-password {
@@ -61,7 +61,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    align-self: center; /* Centraliza o botão */
+    align-self: center; 
     margin-top: 20px;
 }
 

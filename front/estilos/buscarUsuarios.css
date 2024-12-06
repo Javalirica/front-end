@@ -102,6 +102,9 @@ body {
     background-color: #f9f9f9;
     transition: border-color 0.3s ease; 
 }
+.Pesquisar-nome {
+    margin: 15px;
+}
 
 .tipo-usuario-select:focus {
     border-color: #0073e6;
