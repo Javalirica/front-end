@@ -11,7 +11,7 @@ function Locacao(){
 }
 async function fazerLocacao(cpf, bookCode) {
     console.log("Tese");
-    const token = localStorage.getItem('authToken');  // Recupera o token de autenticação do localStorage
+    const token = localStorage.getItem('authToken');
 
     if (!token) {
         alert('Você precisa estar autenticado para realizar um empréstimo.');
@@ -25,15 +25,15 @@ async function fazerLocacao(cpf, bookCode) {
 
     try {
         const response = await fetch('http://3.141.87.82:8080/emprestimo/save', {
-            method: 'PUT',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`  // Envia o token no cabeçalho de autorização
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(loanData)
         });
 
-        if (response.status === 200) {
+        if (response.status === 201) {
             const data = await response.json();
             alert('Empréstimo realizado com sucesso!');
             console.log('Detalhes do empréstimo:', data);

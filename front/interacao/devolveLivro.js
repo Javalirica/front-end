@@ -1,8 +1,8 @@
-
+// Função para finalizar o empréstimo
 async function finalizarEmprestimo(idEmprestimo) {
     console.log("Iniciando finalização do empréstimo...");
 
-    const token = localStorage.getItem("authToken"); // Recupera o token de autenticação do localStorage
+    const token = localStorage.getItem("authToken"); 
 
     if (!token) {
         alert("Você precisa estar autenticado para finalizar um empréstimo.");
@@ -11,7 +11,7 @@ async function finalizarEmprestimo(idEmprestimo) {
     }
 
     try {
-        const response = await fetch(`http://3.141.87.82:8080/emprestimo/${idEmprestimo}`, {
+        const response = await fetch(`http://3.141.87.82:8080/emprestimo/finalizar/${idEmprestimo}`, {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${token}`,
@@ -20,17 +20,23 @@ async function finalizarEmprestimo(idEmprestimo) {
         });
 
         console.log("Status da resposta:", response.status);
+        const responseBody = await response.text(); 
+
+        console.log("Corpo da resposta:", responseBody);
 
         if (response.status === 204) {
-            const leitor = await response.json(); // Retorna o objeto do leitor
             alert("Empréstimo finalizado com sucesso!");
-            console.log("Detalhes do leitor:", leitor);
+            fetchAllLocacoes(); 
         } else if (response.status === 400) {
-            alert("Erro interno ao finalizar empréstimo. Tente novamente.");
-            console.error("Erro 400: Erro interno.");
+            const errorData = JSON.parse(responseBody);
+            alert(`Erro ao finalizar empréstimo: ${errorData.message}`);
+            console.error("Erro 400:", errorData);
         } else if (response.status === 404) {
             alert("Empréstimo não encontrado pelo ID informado.");
             console.error("Erro 404: Empréstimo não encontrado.");
+        } else {
+            alert(`Erro ao finalizar empréstimo. Status: ${response.status}`);
+            console.error(`Erro ao finalizar empréstimo. Status: ${response.status}`);
         }
     } catch (error) {
         console.error("Erro ao finalizar empréstimo:", error);
@@ -40,16 +46,11 @@ async function finalizarEmprestimo(idEmprestimo) {
 
 // Exemplo de chamada da função
 function chamaFinalizarEmprestimo() {
-
-    var idEmprestimo = document.getElementById("idLocacao").value;
-    console.log(idEmprestimo)
-    if (idEmprestimo !=""){
+    var idEmprestimo = document.getElementById("idLocacao").value.trim();
+    console.log("ID do Empréstimo:", idEmprestimo);
+    if (idEmprestimo) {
         finalizarEmprestimo(idEmprestimo);
-
+    } else {
+        alert("Favor preencher uma locação a ser finalizada.");
     }
-    else {
-        alert("Favor Preencher uma Locação a ser finalizado");
-    }
-        
-    
 }
