@@ -1,15 +1,13 @@
-
 async function bloquearLeitor(cpf) {
     console.log("Iniciando bloqueio do leitor...");
-
-    const token = localStorage.getItem("authToken"); // Recupera o token de autenticação do localStorage
+    const token = localStorage.getItem("authToken");
 
     if (!token) {
         alert("Você precisa estar autenticado para bloquear um leitor.");
         console.error("Token de autenticação não encontrado.");
         return;
     }
-  console.log("Iniciando bloqueio do leitor...");
+
     try {
         const response = await fetch(`http://3.141.87.82:8080/leitor/bloquear/${cpf}`, {
             method: "PUT",
@@ -37,14 +35,12 @@ async function bloquearLeitor(cpf) {
     }
 }
 
-// Exemplo de chamada da função
-function chamaBloquearLeitor() { 
-   var  cpf =  document.getElementById("cpfLeitorbloque").value
-    if (cpf != "") {
+// Função que será chamada quando o botão "Bloquear" for pressionado
+function chamaBloquearLeitor() {
+    var cpf = document.getElementById("cpfLeitorbloque").value;
+    if (cpf !== "") {
         bloquearLeitor(cpf);
-    }
-    else {
-        alert("Favor informar o leito a ser bloqueado");
-
+    } else {
+        alert("Favor informar o CPF do leitor a ser bloqueado.");
     }
 }

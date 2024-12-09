@@ -1,6 +1,7 @@
 let paginaAtualLeitores = 1;
 const leitoresPorPagina = 5;
 
+// Função para buscar todos os leitores
 async function buscaTodosLeitores() {
     try {
         const token = localStorage.getItem("authToken");
@@ -36,6 +37,39 @@ async function buscaTodosLeitores() {
     }
 }
 
+// Função para buscar um leitor específico por CPF
+async function buscaLeitorCPF() {
+    const cpfLeitor = document.getElementById("cpfLeitor").value.trim();
+
+    if (!cpfLeitor) {
+        alert("Por favor, insira o CPF do leitor.");
+        return;
+    }
+
+    try {
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+            alert("Token não encontrado. Faça login.");
+            return;
+        }
+
+        const response = await fetch(`http://3.141.87.82:8080/leitor/${cpfLeitor}`, {
+            method: "GET",
+            headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+        });
+
+        if (response.ok) {
+            const leitor = await response.json();
+            exibirLeitores([leitor]); // Exibe o leitor encontrado na tabela
+        } else {
+            alert("Leitor não encontrado.");
+        }
+    } catch (error) {
+        console.error("Erro ao buscar leitor por CPF:", error);
+    }
+}
+
+// Função para exibir os leitores em uma tabela
 function exibirLeitores(leitores) {
     const listaLeitoresDiv = document.getElementById("lista-leitores-tabela");
     listaLeitoresDiv.innerHTML = "";
@@ -70,7 +104,7 @@ function exibirLeitores(leitores) {
             <td>${leitor.cpf}</td>
             <td>${leitor.email}</td>
             <td>${leitor.celular}</td>
-            <td>${leitor.ativo ? "Ativo" : "Inativo"}</td>
+            <td>${leitor.bloqueado ? "Inativo" : "Ativo"}</td>
         `;
         tbody.appendChild(tr);
     });
@@ -78,14 +112,17 @@ function exibirLeitores(leitores) {
     listaLeitoresDiv.appendChild(tabela);
 }
 
+// Função para ir para a próxima página de leitores
 function proximaPaginaLeitores() {
     paginaAtualLeitores++;
     buscaTodosLeitores();
 }
 
+// Função para voltar à página anterior de leitores
 function paginaAnteriorLeitores() {
     if (paginaAtualLeitores > 1) {
         paginaAtualLeitores--;
         buscaTodosLeitores();
     }
 }
+
