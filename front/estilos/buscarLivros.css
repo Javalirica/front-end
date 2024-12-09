@@ -42,20 +42,26 @@
     margin-top: 40px;
 }
 .tabela-livros {
-    width: 100%;
+    width: 90%; /* Ajuste a largura da tabela, por exemplo, 80% do container */
+    margin: 20px auto; /* Centraliza horizontalmente (auto nas laterais) */
     border-collapse: collapse;
-    margin-top: 20px;
+    font-size: 1em;
+    text-align: left;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .tabela-livros th,
 .tabela-livros td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
 
 .tabela-livros th {
-    background-color: #f4f4f4;
+    background-color: #007BFF; /* Azul */
+    color: white; /* Texto branco */
+    text-transform: uppercase;
     font-weight: bold;
 }
 

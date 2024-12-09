@@ -74,7 +74,8 @@ function exibirGerenciadores(gerenciadores) {
         <thead> 
             <tr> 
                 
-                <th>Nome</th> 
+                <th>Nome</th>
+                <th>Email</th> 
                 <th>Descrição</th> 
             </tr> 
         </thead> 
@@ -89,6 +90,7 @@ function exibirGerenciadores(gerenciadores) {
         tr.innerHTML = ` 
             
             <td>${gerenciador.nome}</td> 
+             <td>${gerenciador.email}</td> 
             <td>${gerenciador.role}</td> 
             `; 
             
