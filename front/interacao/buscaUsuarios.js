@@ -129,3 +129,61 @@ function paginaAnterior() {
     }
 }
 
+
+async function buscaUsuariosPorNome() {
+    console.log("Iniciando busca de usuários por nome...");
+
+    const token = localStorage.getItem("authToken");
+    console.log("Token de autenticação:", token);
+
+    if (!token) {
+        alert("Token de autenticação não encontrado. Faça login novamente.");
+        console.error("Token de autenticação não encontrado.");
+        return;
+    }
+
+    try {
+        const nome = document.getElementById("nome").value; // Recupera o nome inserido pelo usuário
+        if (!nome) {
+            alert("Por favor, insira o nome do leitor.");
+            return;
+        }
+
+        const response = await fetch(`http://3.141.87.82:8080/gerenciador/nome?nome=${encodeURIComponent(nome)}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        });
+
+        console.log("Status da resposta:", response.status);
+
+        if (response.ok) {
+            const usuarios = await response.json();
+            console.log("Usuários encontrados:", usuarios);
+
+            // Paginação dos resultados
+            const usuariosPaginados = usuarios.slice(
+                (paginaAtual - 1) * gerenciadoresPorPagina,
+                paginaAtual * gerenciadoresPorPagina
+            );
+            exibirGerenciadores(usuariosPaginados);
+
+        } else if (response.status == 404) {
+            alert("Nenhum usuário encontrado para este nome.");
+        } else if (response.status == 401) {
+            alert("Não autorizado. Faça login novamente.");
+            console.error("Erro 401: Não autorizado.");
+        } else if (response.status == 500) {
+            alert("Erro interno no servidor. Tente novamente mais tarde.");
+            console.error("Erro 500: Erro interno no servidor.");
+        } else {
+            alert(`Erro ao buscar usuários: ${response.statusText}`);
+            console.error(`Erro: ${response.statusText}`);
+        }
+    } catch (error) {
+        console.error("Erro ao buscar usuários por nome:", error);
+        alert("Erro de conexão. Tente novamente.");
+    }
+}
