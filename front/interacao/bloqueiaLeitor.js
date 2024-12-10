@@ -44,3 +44,48 @@ function chamaBloquearLeitor() {
         alert("Favor informar o CPF do leitor a ser bloqueado.");
     }
 }
+async function desbloquearLeitor(cpf) {
+    console.log("Iniciando desbloqueio do leitor...");
+    const token = localStorage.getItem("authToken");
+
+    if (!token) {
+        alert("Você precisa estar autenticado para desbloquear um leitor.");
+        console.error("Token de autenticação não encontrado.");
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://3.141.87.82:8080/leitor/desbloquear/${cpf}`, {
+            method: "PUT",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            }
+        });
+
+        console.log("Status da resposta:", response.status);
+
+        if (response.status === 204) {
+            alert("Leitor desbloqueado com sucesso!");
+            console.log(`Leitor com CPF ${cpf} foi desbloqueado.`);
+        } else if (response.status === 404) {
+            alert("Leitor não encontrado com o CPF informado.");
+            console.error("Erro 404: Leitor não encontrado.");
+        } else {
+            alert(`Erro ao desbloquear leitor: ${response.statusText}`);
+            console.error(`Erro: ${response.statusText}`);
+        }
+    } catch (error) {
+        console.error("Erro ao desbloquear leitor:", error);
+        alert("Erro de conexão. Tente novamente.");
+    }
+}
+
+function chamaDesbloquarLeitor() {
+    var cpf = document.getElementById("cpfLeitorbloque").value;
+    if (cpf !== "") {
+        desbloquearLeitor(cpf);
+    } else {
+        alert("Favor informar o CPF do leitor a ser desbloqueado.");
+    }
+}
