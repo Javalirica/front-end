@@ -143,13 +143,13 @@ async function buscaUsuariosPorNome() {
     }
 
     try {
-        const nome = document.getElementById("nome").value; // Recupera o nome inserido pelo usuário
+        const nome = document.getElementById("nome").value.trim(); // Remove espaços em branco
         if (!nome) {
             alert("Por favor, insira o nome do leitor.");
             return;
         }
 
-        const response = await fetch(`http://3.141.87.82:8080/gerenciador/nome?nome=${encodeURIComponent(nome)}`, {
+        const response = await fetch(`http://3.141.87.82:8080/gerenciador/${encodeURIComponent(nome)}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -168,14 +168,15 @@ async function buscaUsuariosPorNome() {
                 (paginaAtual - 1) * gerenciadoresPorPagina,
                 paginaAtual * gerenciadoresPorPagina
             );
-            exibirGerenciadores(usuariosPaginados);
 
-        } else if (response.status == 404) {
+            exibirGerenciadores(usuariosPaginados);
+        } else if (response.status === 404) {
             alert("Nenhum usuário encontrado para este nome.");
-        } else if (response.status == 401) {
+            console.error("Erro 404: Usuário não encontrado.");
+        } else if (response.status === 401) {
             alert("Não autorizado. Faça login novamente.");
             console.error("Erro 401: Não autorizado.");
-        } else if (response.status == 500) {
+        } else if (response.status === 500) {
             alert("Erro interno no servidor. Tente novamente mais tarde.");
             console.error("Erro 500: Erro interno no servidor.");
         } else {
